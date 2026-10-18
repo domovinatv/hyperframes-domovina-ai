@@ -1,0 +1,7 @@
+# rendered output and review artifacts (regenerate with hyperframes render / snapshot)
+renders/
+snapshots/
+**/renders/
+**/.hyperframes/artifacts/
+node_modules/
+.DS_Store

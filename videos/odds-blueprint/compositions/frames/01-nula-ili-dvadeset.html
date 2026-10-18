@@ -1,0 +1,51 @@
+<template>
+  <div data-hf-id="hf-1op4" id="root" data-composition-id="01-nula-ili-dvadeset" data-start="0" data-duration="8.5" data-width="1920" data-height="1080">
+    <style>
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: system-ui, sans-serif; }
+      #root .f01-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 900px 600px at 50% 40%, rgba(0,47,108,0.28), rgba(4,16,31,0) 70%), #04101f; }
+      #root .f01-row { position: absolute; left: 0; right: 0; top: 270px; height: 280px; display: flex; justify-content: center; align-items: center; gap: 44px; }
+      #root .f01-phrase { font-size: 100px; font-weight: 700; letter-spacing: -0.02em; color: #fff; white-space: nowrap; line-height: 1; display: flex; gap: 0.28em; }
+      #root .f01-w { display: inline-block; }
+      #root .f01-slot { position: relative; width: 340px; height: 280px; }
+      #root .f01-tok { position: absolute; left: 0; top: 0; height: 280px; line-height: 280px; font-size: 280px; font-weight: 700; letter-spacing: -0.03em; white-space: nowrap; opacity: 0; }
+      #root .f01-glow { position: absolute; left: 50%; top: 50%; width: 760px; height: 760px; margin: -380px 0 0 -380px; border-radius: 50%; background: radial-gradient(circle, rgba(127,178,255,0.55), rgba(127,178,255,0) 65%); opacity: 0; }
+      #root .f01-pay { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font-size: 60px; font-weight: 400; color: rgba(255,255,255,0.8); display: flex; justify-content: center; gap: 0.3em; white-space: nowrap; }
+    </style>
+    <div data-hf-id="hf-8e6s" class="clip f01-bg" data-start="0" data-duration="8.5" data-track-index="0"></div>
+    <div data-hf-id="hf-hqc4" class="f01-row">
+      <div data-hf-id="hf-xshr" class="f01-phrase">
+        <span data-hf-id="hf-l51n" class="f01-w">Tvoj</span><span data-hf-id="hf-xng7" class="f01-w">glas</span><span data-hf-id="hf-zfw1" class="f01-w">vrijedi</span>
+      </div>
+      <div data-hf-id="hf-kka4" class="f01-slot">
+        <div data-hf-id="hf-ovri" class="f01-glow" id="f01-glow"></div>
+        <span data-hf-id="hf-tzi4" class="f01-tok" id="f01-t0a" style="color:#FF0000">0</span>
+        <span data-hf-id="hf-3kxc" class="f01-tok" id="f01-t20a" style="color:#fff">20</span>
+        <span data-hf-id="hf-lvel" class="f01-tok" id="f01-t0b" style="color:#FF0000">0</span>
+        <span data-hf-id="hf-b8k1" class="f01-tok" id="f01-t20b" style="color:#fff">20</span>
+        <span data-hf-id="hf-peg0" class="f01-tok" id="f01-t1" style="color:#7fb2ff">1</span>
+      </div>
+    </div>
+    <div data-hf-id="hf-locy" class="f01-pay">
+      <span data-hf-id="hf-qxjb" class="f01-pw">Trebao</span><span data-hf-id="hf-uvq3" class="f01-pw">bi</span><span data-hf-id="hf-tfp8" class="f01-pw">vrijediti</span><span data-hf-id="hf-yxo5" class="f01-pw">1.</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        var tl = gsap.timeline({ paused: true });
+        tl.fromTo("#root .f01-w", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.28 }, 0.1);
+        // hard-cut token swap in the slot (discrete, no transitions)
+        var seq = [["#f01-t0a", 1.8, 2.5], ["#f01-t20a", 2.5, 3.2], ["#f01-t0b", 3.2, 3.9], ["#f01-t20b", 3.9, 4.6]];
+        seq.forEach(function (s) {
+          tl.set(s[0], { opacity: 1 }, s[1]);
+          tl.set(s[0], { opacity: 0 }, s[2]);
+        });
+        tl.fromTo("#f01-t1", { opacity: 0, scale: 0.8, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, 4.6);
+        tl.fromTo("#root .f01-pw", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.25 }, 5.0);
+        tl.fromTo("#f01-glow", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 1.0, ease: "sine.out" }, 6.0);
+        tl.to("#f01-glow", { opacity: 0.45, duration: 1.0, ease: "sine.inOut" }, 7.0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["01-nula-ili-dvadeset"] = tl;
+      })();
+    </script>
+  </div>
+</template>

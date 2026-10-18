@@ -1,0 +1,520 @@
+# odds.domovina.ai — *od danas do sutra*
+
+Dokumentacija i vizualizacija dvaju društvenih problema u Hrvatskoj i prijedlog
+rješenja koje služi općem dobru.
+
+## Vizija
+
+Pristup likvidnosti je **javna infrastruktura**, kao ceste, struja i internet:
+građanin može izravno, bez posrednika koji izvlači rentu, posuditi novac od
+zajednice građana za svoju investiciju, a kamata ostaje u toj zajednici.
+
+## Misija
+
+Riješiti dva problema koja su zapravo jedan:
+
+1. **P2P pristup likvidnosti.** Danas novac građana (porezi isplaćeni kao plaće,
+   mirovine i potpore, pa štednja) završava kao depozit u bankama koje su oko
+   90 % u stranom vlasništvu. One ga plasiraju natrag istim građanima kao
+   kredit, a kamatnu maržu izvlače kao dobit i dividendu.
+2. **1 osoba = 1 glas.** Uz prag od 5 % po izbornoj jedinici i D'Hondta, glas
+   na parlamentarnim izborima vrijedi između 0 i ~20 proporcionalnih glasova:
+   lista s 5,0048 % glasova može dobiti 14/14 mandata jedinice. Taj Sabor
+   4 godine upravlja cijelim proračunom i imenuje Savjet HNB-a. U bankama
+   glas ima kapital (jedna dionica, jedan glas), a kad su građani pokušali
+   osnovati vlastitu zadružnu banku po načelu 1 član = 1 glas (ZEF / Ebanka,
+   2016.–2018.), nisu dobili odobrenje za rad.
+
+## Dokumenti
+
+| # | Dokument | Sadržaj |
+|---|----------|---------|
+| 1 | [Trenutno stanje](docs/01-trenutno-stanje.md) | Činjenični lanac korak po korak: narod → Sabor → Savjet HNB-a → licenca; porezi → proračun → depoziti → strane banke → dobit |
+| 2 | [Rješenje: 1 osoba = 1 glas](docs/02-rjesenje-1-osoba-1-glas.md) | Razmjeran izborni sustav, digitalni identitet bez duplikata, provjerljivo glasanje, upravljanje javnom infrastrukturom |
+| 3 | [Rješenje: P2P likvidnost](docs/03-rjesenje-p2p-likvidnost.md) | P2P banka kao javna infrastruktura: načela, slojevi, tok novca, pravni put u fazama, rizici |
+| 4 | [Gradivni blokovi](docs/04-gradivni-blokovi.md) | Što već postoji u ekosustavu i kako se poopćuje |
+| 5 | [Izvori](docs/05-izvori.md) | Svi izvori s datumima |
+| 6 | [Iteracije](docs/06-iteracije.md) | Otvorena pitanja i dnevnik promjena po iteracijama |
+
+## Što ovaj repo jest
+
+Vizija i blueprint, ne implementacija. Nema koda: samo markdown i Mermaid
+dijagrami koji opisuju problem i rješenje. Iteriramo N puta; svaka iteracija
+je zapisana u [docs/06-iteracije.md](docs/06-iteracije.md).
+
+## Pravilo pisanja
+
+Činjenice i stavovi su odvojeni. Svaka činjenica ima izvor u
+[docs/05-izvori.md](docs/05-izvori.md). Gdje je nešto stav ili procjena, tako
+piše. Brojke koje nisu provjerene označene su s **[provjeriti]**.
+# 1. Trenutno stanje — činjenični lanac, korak po korak
+
+Stanje na dan 2026-10-18. Brojevi u uglatim zagradama, npr. [S3], vode na
+[izvore](05-izvori.md). Stavovi su označeni kao **Stav:**.
+
+Dva lanca, koja se spajaju u istoj točki: **tko upravlja novcem građana i
+po kojem pravilu glasa.**
+
+```mermaid
+flowchart LR
+    subgraph A["Lanac A — vlast"]
+        A1[Birači] -->|izbori, prag 5 %, D'Hondt| A2[Hrvatski sabor]
+        A2 -->|imenuje| A3[Savjet HNB-a]
+        A3 -->|nadzor, prijedlog licence| A4[ECB / HNB]
+        A4 -->|odbijeno 2017.| A5[ZEF / Ebanka<br/>zadružna banka građana]
+    end
+    subgraph B["Lanac B — novac"]
+        B1[Građani i tvrtke] -->|porezi, doprinosi| B2[Državni proračun<br/>račun u HNB-u]
+        B2 -->|plaće, mirovine, potpore| B3[Računi građana<br/>u poslovnim bankama]
+        B3 -->|depoziti| B4[Banke ~90 %<br/>u stranom vlasništvu]
+        B4 -->|krediti uz kamatu| B1
+        B4 -->|dobit, dividenda| B5[Strani vlasnici]
+    end
+    A2 -. donosi proračun .-> B2
+```
+
+---
+
+## Lanac A — glas građanina ne vrijedi jednako, a ta vlast bira Savjet HNB-a
+
+### A1. Kako se biraju zastupnici
+
+- Sabor ima 151 zastupnika: 140 iz 10 izbornih jedinica (po 14), 3 iz
+  jedinice za dijasporu, 8 iz jedinice za nacionalne manjine [S10].
+- U svakoj od 10 jedinica: lista s jednim preferencijskim glasom,
+  **prag 5 %** unutar jedinice, mandati se dijele **D'Hondtovom metodom**
+  samo među listama iznad praga [S10][S11].
+- Ustavni sud je u veljači 2023. ukinuo zakon o izbornim jedinicama jer se
+  težina glasa previše razlikovala između jedinica; nove granice vrijede od
+  izbora 2024. [S10][S11]. To je popravilo nejednakost **između** jedinica,
+  ali ne i nejednakost koju stvaraju prag i D'Hondt **unutar** jedinice.
+
+### A2. Matematika praga: glas vrijedi između 0 i ~20
+
+Primjer koji se može provjeriti olovkom, u jednoj jedinici sa 14 mjesta:
+
+| Lista | Glasova | Udio | Prolazi prag 5 %? | Mandata |
+|---|---:|---:|---|---:|
+| Stranka A | 1.000 | 5,0048 % | da | **14 / 14** |
+| 19 stranaka, svaka | 999 | 4,9997 % | ne | 0 |
+| **Ukupno** | 19.981 | 100 % | | 14 |
+
+- Lista s **5,0048 %** glasova dobiva **100 %** mandata te jedinice.
+- Glas birača stranke A vrijedi 100 / 5,0048 ≈ **20 puta** više od
+  proporcionalnog. Glas svih ostalih birača (94,99 %) vrijedi **0**.
+- Kad bi se isto ponovilo u svih 10 jedinica, ta lista bi s ~5 % glasova
+  imala 140 od 151 zastupnika (**92,7 %**), dakle više od ustavne
+  dvotrećinske većine, na 4 godine, s cijelim državnim proračunom i pravom
+  da imenuje Savjet HNB-a.
+
+Ekstrem je teorijski, ali mehanizam radi i u stvarnosti, samo blaže.
+
+### A3. Stvarni rezultat: izbori 17. 4. 2024. [S12]
+
+| Lista | Udio glasova | Mandata | Udio mandata |
+|---|---:|---:|---:|
+| HDZ i koalicija | 34,42 % | 61 | 40,4 % |
+| Rijeke pravde (SDP i koalicija) | 25,40 % | 42 | 27,8 % |
+| DP i koalicija | 9,56 % | 14 | 9,3 % |
+| Možemo! | 9,10 % | 10 | 6,6 % |
+| Most i koalicija | 8,02 % | 11 | 7,3 % |
+| Fokus–Republika | 2,25 % | 1 | 0,7 % |
+
+- HDZ: 34,42 % važećih glasova → 40,4 % mandata. Mjereno prema svim
+  upisanim biračima I.–XI. jedinice, to je **20,7 % biračkog tijela**
+  (729.949 / 3.523.270) [S21].
+- **236.881 glas (11,39 %)** dan je listama ispod praga u svojoj jedinici, a
+  270.135 (12,98 %) listama bez ijednog mandata u jedinici: ti glasovi nisu
+  pretvoreni ni u jedan mandat [S21].
+- Gallagherov indeks nerazmjernosti 2024.: **7,04** (iznad 5 znači visoka
+  nerazmjernost; razmjerni sustavi su obično ispod 2–3) [S21].
+- Vladajuća većina **HDZ + DP: 43,98 % glasova → 75 mandata** (49,7 %), uz
+  potporu manjinskih zastupnika većina u Saboru. Manjina birača daje većinu
+  vlasti.
+
+### A4. Taj Sabor imenuje Savjet HNB-a
+
+- Savjet HNB-a ima 8 članova: guverner, zamjenik guvernera i 6
+  viceguvernera, mandat 6 godina [S4][S5].
+- Sve ih imenuje **Hrvatski sabor**, na prijedlog Odbora za izbor,
+  imenovanja i upravne poslove, uz mišljenje Odbora za financije i državni
+  proračun [S5].
+- Dakle: izborni sustav iz A2/A3 → saborska većina → Savjet HNB-a.
+
+### A5. Građani su pokušali osnovati vlastitu banku: ZEF / Ebanka
+
+- **ZEF – Zadruga za etično financiranje** osnovana je 2014. u Zagrebu s
+  ciljem osnivanja prve etične banke u Hrvatskoj [S6][S7]. Zadruga: jedan
+  član, jedan glas, jednak temeljni ulog za svakog člana (danas 331,81 €) [S7].
+- Članstvo: oko 1.400 (2018., prema izjavi u [S2]); ZEF danas navodi 814
+  članova i opisuje se kao najveća zadruga u Hrvatskoj [S7]. Brojke se
+  razlikuju po izvoru i godini **[provjeriti]**.
+- **11. 10. 2016.** ZEF podnosi HNB-u zahtjev za odobrenje za rad
+  „Ebanka d.d." [S2].
+- **2017.** HNB odbija zahtjev. Razlozi koje je HNB naveo [S1][S3]:
+  - nije dokazano da je prikupljen **minimalni temeljni kapital**
+    (tada 40 milijuna kuna, ≈ 5,3 mil. €, čl. 19. Zakona o kreditnim
+    institucijama) [S2];
+  - nije dokumentirano kako je kapital prikupljen;
+  - neodgovarajuća planirana kadrovska ekipiranost;
+  - sumnja u stabilnost modela jer članovi zadruge mogu povući udjele.
+- ZEF: rješenje je stiglo tri tjedna prije roka i dan prije sastanka na
+  kojem se kapital trebao prikupiti; nije pokrenut upravni spor [S1][S2].
+- **2017.–2018.** ZEF pokušava dokapitalizirati Tesla štednu banku;
+  **22. 2. 2018.** HNB predlaže stečaj Tesle [S2].
+- Danas ZEF razvija inicijativu Europske etične banke; licenca u Hrvatskoj
+  nije dobivena [S7].
+
+### A6. Tko danas odlučuje o licenci
+
+- Od 1. 10. 2020. Hrvatska je u bliskoj suradnji s ECB-om, a od 1. 1. 2023.
+  u europodručju [S8].
+- Po Uredbi o SSM-u (EU 1024/2013, čl. 4. i 14.) **odobrenje za rad svake
+  kreditne institucije daje ECB**, na prijedlog nacionalnog nadzornika
+  (HNB) [S9]. Minimalni početni kapital banke u EU je 5 milijuna € (CRD,
+  čl. 12.).
+- Znači: ZEF je 2017. odbio HNB sam; novi zahtjev danas bi išao preko HNB-a
+  na odluku ECB-a.
+
+**Stav:** Formalno je odbijenica imala navedene razloge. Sustavno gledano,
+prag od ~5 milijuna € kapitala, uz pravila pisana za dioničke banke, čini
+banku u vlasništvu građana po načelu „1 član, 1 glas" gotovo nemogućom, dok
+je za kapital stranih bankarskih grupa trivijalan.
+
+---
+
+## Lanac B — novac građana kruži kroz strane banke
+
+### B1. Porezi ulaze u proračun
+
+- Država ubire poreze i doprinose; plan ukupnih prihoda državnog proračuna
+  za 2025. bio je ~33 milijarde € [S15].
+- Svi priljevi i odljevi državnog proračuna idu preko **jedinstvenog računa
+  državnog proračuna koji se vodi u HNB-u** [S16].
+
+### B2. Proračun se isplaćuje građanima, novac postaje depozit u bankama
+
+- Plaće u javnom sektoru, mirovine, potpore i plaćanja dobavljačima
+  isplaćuju se na račune građana i tvrtki u poslovnim bankama.
+- Ondje taj novac postaje **depozit**, tj. izvor likvidnosti banke.
+
+### B3. Banke su ~90 % u stranom vlasništvu
+
+- Banke u stranom vlasništvu već godinama drže oko **87,5–90 % imovine**
+  bankovnog sustava, pretežno talijanske i austrijske grupe [S13][S14].
+- Upravljanje dioničkim društvom: glas ima **dionica**, ne osoba.
+
+### B4. Banke plasiraju tu likvidnost istim građanima kao kredit
+
+- Građanin koji treba novac za investiciju ide u poslovnu banku. Nema
+  institucionalnog puta da zajednica građana izravno posudi građaninu.
+- HBOR (državna razvojna banka) velik dio kredita plasira **preko**
+  poslovnih banaka **[provjeriti udio]**.
+
+### B5. Kamatna marža postaje dobit, dobit postaje dividenda
+
+| Godina | Dobit banaka u RH | Izvor |
+|---|---:|---|
+| 2023. | 1,36 mlrd € (+91,2 %), ROE 15,5 % | [S17] |
+| 1.–9. mj. 2024. | 1,2 mlrd € | [S18] |
+| 1.–9. mj. 2025. | 1,13 mlrd €, ROE 15,5 % | [S17] |
+
+- 2009.–2018. banke su isplatile ~18,9 milijardi kuna dividendi, većinom u
+  inozemstvo [S14].
+
+### B6. Dokaz da izravni put postoji: narodna obveznica 2023.
+
+- U ožujku 2023. država je prvi put posudila **izravno od građana**:
+  44.843 građana upisalo je 1,335 milijardi € na 2 godine uz **3,65 %**
+  godišnje; ukupno izdanje 1,85 mlrd € [S19].
+- Kamata je otišla građanima (48,7 mil. € kamate građanima), ne
+  posredniku [S19].
+
+**Zaključak lanca B (stav):** Infrastruktura za izravni tok novca
+građanin ↔ država već je postojala za *posuđivanje državi*. Ne postoji
+obrnuto: građanin ↔ zajednica građana za *investiciju građanina*. Taj
+smjer drži privatni, većinom strani, posrednik.
+
+---
+
+## Što ovaj dokument ne tvrdi
+
+- Ne tvrdi da je HNB odbio ZEF bez navedenih razloga; razlozi su gore.
+- Ne tvrdi da banke doslovno posuđuju „porezni novac". Tvrdi da proračunske
+  isplate završavaju kao depoziti u bankama, a banke kreditiraju iz svoje
+  bilance (i stvaraju novac kreditom).
+- Ne tvrdi da je izborni ekstrem iz A2 stvarno nastupio; A3 pokazuje
+  stvarni, blaži učinak istog mehanizma.
+- Državni proračun je u deficitu [S15], pa „posuditi iz proračuna" ne znači
+  posuditi iz viška, nego **promijeniti tko upravlja tokom kredita**. Vidi
+  [rješenje](02-rjesenje-1-osoba-1-glas.md) i [P2P likvidnost](03-rjesenje-p2p-likvidnost.md).
+# 2. Rješenje: 1 osoba = 1 glas
+
+Blueprint, ne implementacija. Problem je opisan u
+[01 — lanac A](01-trenutno-stanje.md).
+Gradivni blokovi koji već postoje su u [04](04-gradivni-blokovi.md).
+
+## Načelo
+
+> Svaki glas ima istu težinu, na izborima i u upravljanju javnom
+> infrastrukturom. Mjera uspjeha je broj, ne dojam: **glas vrijedi 1, a ne
+> 0 ili 20.**
+
+Tri sloja, svaki rješava drugi dio problema:
+
+```mermaid
+flowchart TB
+    S1["Sloj 1 — Pravilo<br/>kako se glasovi pretvaraju u mandate"]
+    S2["Sloj 2 — Identitet<br/>jedna stvarna osoba = jedan glas, bez duplikata"]
+    S3["Sloj 3 — Provjerljivost<br/>svatko može sam prebrojati"]
+    S4["Primjena<br/>Sabor · referendumi · zadruga · P2P banka · Savjet HNB-a"]
+    S1 --> S4
+    S2 --> S4
+    S3 --> S4
+```
+
+---
+
+## Sloj 1 — Pravilo: razmjernost koja se mjeri
+
+### Cilj, mjerljivo
+
+| Mjera | Danas (2024.) | Cilj |
+|---|---:|---:|
+| Gallagherov indeks | 7,04 | < 2 |
+| Glasovi koji nisu pretvoreni ni u jedan mandat | 11,4–13,0 % | < 2 % |
+| Najveći omjer % mandata ÷ % glasova | 1,24× | ≈ 1,0× |
+| Teorijski najgori slučaj po jedinici | ~20× i 0× | ≈ 1× |
+
+### Opcije (svaka se može izračunati simulatorom, vidi [04](04-gradivni-blokovi.md))
+
+| Opcija | Što mijenja | Dobitak | Cijena / rizik |
+|---|---|---|---|
+| **A. Jedna nacionalna jedinica** | 140 mandata dijeli se na razini RH | Nestaje efekt praga po jedinici; prirodni prag ≈ 0,7 % | Slabija veza zastupnik–regija (ublažava se preferencijskim glasom) |
+| **B. Kompenzacijski mandati** (nordijski model) | Zadrži 10 jedinica, dodaj nacionalni sloj koji izjednačava ukupni rezultat | Regije ostaju, ukupni rezultat razmjeran | Složenije za objasniti |
+| **C. Sainte-Laguë umjesto D'Hondta** | Djelitelji 1, 3, 5… | Manja prednost najvećoj listi | Sam po sebi ne rješava prag |
+| **D. Niži prag (npr. 3 %) ili nacionalni prag** | Prag se računa na razini RH | Manje propalih glasova | Više stranaka u Saboru |
+| **E. Rezervni glas** | Birač označi i drugi izbor; ako prva lista padne ispod praga, glas ide drugoj | Glas nikad ne propada; zadržava prag | Novi tip listića |
+
+**Stav (polazna preporuka za iteraciju 2):** B + E. Zadržava izborne
+jedinice i prag protiv fragmentacije, a kompenzacijski sloj i rezervni glas
+dovode težinu svakog glasa blizu 1.
+
+### Gdje se odlučuje o pravilu
+
+```mermaid
+flowchart LR
+    G[Građani] -->|građanska inicijativa<br/>referendum| Z[Zakon o izborima]
+    SB[Sabor] -->|izmjena zakona| Z
+    US[Ustavni sud] -->|nadzor jednakosti glasa| Z
+    Z --> I[Sljedeći izbori]
+```
+
+Ustavni sud je 2023. već presudio da se težina glasa ne smije previše
+razlikovati **između** jedinica. Isti argument jednakog glasa vrijedi i za
+nejednakost **unutar** jedinice zbog praga — **otvoreno pravno pitanje za
+iteraciju 2**.
+
+---
+
+## Sloj 2 — Identitet: jedna osoba, jedan glas, bez otkrivanja tko
+
+Za sve glasanje izvan državnih izbora (referendumske inicijative, zadruga,
+P2P banka, javna savjetovanja) treba digitalni identitet koji jamči dvoje:
+**samo stvarni građanin** i **samo jednom**, a pritom ne otkriva **kako** je
+tko glasao.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant B as Birač
+    participant E as eID (eOsobna / Certilia)
+    participant R as Registar članova
+    participant Z as ZK dokaz (Semaphore)
+    participant K as Javna glasačka kutija
+    B->>E: prijava stvarnim identitetom
+    E->>R: potvrda: stvarna osoba, OIB jednom
+    R->>R: upis anonimne obveze (commitment) u skup
+    B->>Z: "pripadam skupu" + nullifier za ovo glasanje
+    Z->>K: glas + dokaz, bez imena
+    K->>K: isti nullifier drugi put → odbijeno
+```
+
+- eID dokazuje da je osoba stvarna; registar zna **tko je član**, ali ne
+  **kako je glasao**.
+- Nullifier po glasanju sprječava dvostruki glas.
+- Ključ glasača: passkey na uređaju + 24 riječi za oporavak.
+
+---
+
+## Sloj 3 — Provjerljivost: svatko može prebrojati
+
+```mermaid
+flowchart LR
+    V[Glasovi] --> H[Lanac hasheva<br/>svaki glas veže prethodni]
+    H --> T[Satni otisak<br/>OpenTimestamps → Bitcoin]
+    H --> C[Javni ugovor<br/>Gnosis Chain]
+    T --> P[Neovisna skripta<br/>za provjeru]
+    C --> P
+    P --> R[Rezultat koji ne ovisi<br/>o povjerenju u organizatora]
+```
+
+---
+
+## Primjena
+
+| Gdje | Danas | Blueprint |
+|---|---|---|
+| Sabor | Prag po jedinici + D'Hondt, Gallagher 7,04 | Sloj 1: B + E |
+| Građanske inicijative | Papirnato prikupljanje potpisa | Slojevi 2 + 3 za prikupljanje i provjeru |
+| Zadruga / P2P banka | ZEF: 1 član = 1 glas, ali bez licence | Slojevi 2 + 3 kao upravljanje [P2P banke](03-rjesenje-p2p-likvidnost.md) |
+| Banke | 1 dionica = 1 glas | P2P banka kao javna infrastruktura, 1 član = 1 glas |
+| Savjet HNB-a | Imenuje obična saborska većina (2024. iza nje 43,98 % glasova) | **Otvoreno pitanje:** kvalificirana većina (npr. 2/3) za imenovanje, da ga ne može sama odrediti manjina birača |
+
+## Ograničenja i rizici
+
+- Državni izbori ostaju papirnati; slojevi 2 i 3 su za sve **ostalo**
+  glasanje. Online glasanje na državnim izborima nije cilj ovog blueprinta.
+- Prisila i kupovina glasova kod glasanja s udaljenosti: ZK skriva glas od
+  organizatora, ali ne od osobe koja stoji iza birača. Ublažava se
+  mogućnošću promjene glasa do zatvaranja.
+- Kvalificirana većina za Savjet HNB-a mora poštovati Statut ESSB-a i ECB-a
+  (neovisnost, razlozi za razrješenje).
+- eID ovisi o državnoj infrastrukturi; registar mora biti zaštićen i
+  minimalan.
+# 3. Rješenje: P2P likvidnost kao javna infrastruktura
+
+Blueprint, ne implementacija. Problem je opisan u
+[01 — lanac B](01-trenutno-stanje.md). Gradivni blokovi su u
+[04](04-gradivni-blokovi.md).
+
+## Načelo
+
+> Pristup likvidnosti je javna infrastruktura, kao cesta: gradi se za
+> sve, upravlja se po načelu **1 član = 1 glas**, i ne služi privatnom
+> bogaćenju. **Kamata ostaje kod onih koji nose rizik i u zajedničkoj
+> pričuvi, ne odlazi dioničarima.**
+
+## Danas i blueprint, jedno uz drugo
+
+```mermaid
+flowchart LR
+    subgraph DANAS["Danas"]
+        direction TB
+        d1[Građanin štedi] -->|depozit, niska kamata| d2[Poslovna banka<br/>~90 % strano vlasništvo]
+        d2 -->|kredit, viša kamata| d3[Građanin investira]
+        d2 -->|marža → dobit| d4[Dividenda<br/>stranim vlasnicima]
+        d5[1 dionica = 1 glas] -.upravlja.-> d2
+    end
+    subgraph SUTRA["Blueprint"]
+        direction TB
+        s1[Građanin zajmodavac] -->|ulog| s2[Javna P2P infrastruktura<br/>neprofitna, otvoreni kod]
+        s2 -->|zajam, razdijeljen na<br/>mnogo malih dijelova| s3[Građanin zajmoprimac]
+        s3 -->|otplata + kamata| s2
+        s2 -->|kamata| s1
+        s2 -->|dio kamate| s4[Pričuvni fond<br/>pokriva gubitke]
+        s5[1 član = 1 glas] -.upravlja.-> s2
+    end
+```
+
+## Kriteriji pravednosti
+
+„Objektivno pravedno" ovdje znači da se svako od ovih pravila može
+provjeriti:
+
+| # | Kriterij | Danas | Blueprint |
+|---|---|---|---|
+| 1 | Tko dobiva kamatu | Banka (marža), pa dioničari | Zajmodavci koji nose rizik + pričuvni fond |
+| 2 | Tko upravlja | Kapital (1 dionica = 1 glas) | Članovi (1 član = 1 glas) |
+| 3 | Kamo ide višak | Dividenda, većinom u inozemstvo | Pričuva, niže kamate, javna namjena; nikad dividenda |
+| 4 | Transparentnost | Poslovna tajna | Javna knjiga: svaki zajam, kamata, gubitak (anonimizirano) |
+| 5 | Pristup | Banka odlučuje po svojim pravilima | Javna, objavljena pravila ocjene; žalba članstvu |
+| 6 | Vlasništvo infrastrukture | Privatno | Javno dobro: otvoreni kod, ne može se prodati |
+
+## Slojevi
+
+```mermaid
+flowchart TB
+    L0["0 · Identitet<br/>eID, 1 osoba jedan račun, KYC/AML<br/>(zajedničko s rješenjem 02)"]
+    L1["1 · Novac<br/>euro: SEPA i regulirani euro token; vlastiti novčanik"]
+    L2["2 · Knjiga<br/>javna, dvostruko knjigovodstvo, provjerljiva"]
+    L3["3 · Tržište zajmova<br/>uparivanje, raspodjela rizika, javna pravila ocjene"]
+    L4["4 · Pričuvni fond<br/>dio svake kamate, pokriva prve gubitke"]
+    L5["5 · Upravljanje<br/>zadruga: 1 član = 1 glas, provjerljivo glasanje"]
+    L0 --> L1 --> L2 --> L3 --> L4
+    L5 -.pravila.-> L3
+    L5 -.pravila.-> L4
+```
+
+## Život jednog zajma, korak po korak
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Z as Zajmoprimac
+    participant P as P2P infrastruktura
+    participant D as Zajmodavci (mnogo)
+    participant F as Pričuvni fond
+    Z->>P: zahtjev: iznos, namjena, rok
+    P->>P: ocjena po javnim pravilima → razred rizika i kamata
+    P->>D: ponuda, zajam razdijeljen u mnogo malih udjela
+    D->>P: ulozi (svaki zajmodavac u mnogo zajmova)
+    P->>Z: isplata
+    loop svaki mjesec
+        Z->>P: rata (glavnica + kamata)
+        P->>D: glavnica + kamata
+        P->>F: dio kamate
+    end
+    alt zajmoprimac ne plaća
+        F->>D: pokriva gubitak do iznosa pričuve
+    end
+    P->>P: sve stavke u javnu knjigu
+```
+
+## Uloga države
+
+Proračun je u deficitu, pa država **nije izvor novca** za zajmove. Njena
+uloga je infrastruktura i pravila, ne kapital:
+
+| Uloga | Kako | Postojeći presedan |
+|---|---|---|
+| Infrastruktura | Javna platforma, kao e-Građani ili FINA | e-Građani, FINA |
+| Izravan tok | Ako građani mogu izravno posuditi državi, mogu i jedni drugima | Narodna obveznica 2023.: 44.843 građana, 1,335 mlrd € |
+| Jamstvo prvog gubitka | Razvojna banka pokriva dio gubitka umjesto da ide preko poslovnih banaka | HBOR |
+| Pravila | Zakonski okvir za P2P kao javnu infrastrukturu | Zakon o kreditnim unijama, ECSP |
+
+## Pravni put u fazama
+
+Svaka faza je legalna sama po sebi i ne čeka sljedeću.
+
+```mermaid
+flowchart LR
+    F0["Faza 0<br/>Zadruga ZEF<br/>članstvo, ulozi,<br/>namjenski fondovi"] --> F1["Faza 1<br/>Skupno financiranje<br/>zajmovima tvrtkama<br/>ECSP, licenca HANFA"]
+    F1 --> F2["Faza 2<br/>Kreditna unija<br/>štednja i zajmovi<br/>među članovima, HNB"]
+    F2 --> F3["Faza 3<br/>Zadružna banka<br/>licenca ECB,<br/>kapital ≥ 5 mil. €"]
+    F3 --> F4["Faza 4<br/>Zakon: P2P kao<br/>javna infrastruktura"]
+```
+
+| Faza | Što je moguće | Ograničenje |
+|---|---|---|
+| 0 | Članstvo 1 član = 1 glas, uplate, namjenski fondovi | Nema zajmova ni štednje |
+| 1 | Građani posuđuju **tvrtkama** preko licencirane platforme [S20] | Do 5 mil. € po nositelju projekta u 12 mjeseci; nema potrošačkih zajmova; ulog nije osiguran |
+| 2 | Štednja i zajmovi **među članovima** | Uvjeti iz Zakona o kreditnim unijama **[provjeriti: kapital, ograničenja]** |
+| 3 | Puna banka: depoziti osigurani, kredit svima | 5 mil. € kapitala, odobrenje ECB-a; tu je ZEF zapeo 2017. |
+| 4 | P2P kao javna infrastruktura po zakonu | Politička odluka (veza s rješenjem [02](02-rjesenje-1-osoba-1-glas.md)) |
+
+## Rizici, iskreno
+
+- **Ulog u P2P zajam nije depozit.** Ne pokriva ga osiguranje depozita do
+  100.000 €. Pričuvni fond ublažava, ali ne uklanja rizik. To se mora pisati
+  na svakom ekranu.
+- **Kreditni rizik.** Bez dobre ocjene gubici pojedu kamatu. Javna pravila
+  ocjene moraju se provjeravati na podacima i mijenjati glasanjem.
+- **Prijevare i pranje novca.** KYC/AML vrijedi kao i za banke (sloj 0).
+- **Preuzimanje upravljanja.** 1 član = 1 glas štiti od kapitala, ali ne od
+  organiziranih skupina; potrebni su kvorumi i javni zapisnici.
+- **Stvaranje novca.** Banka kreditom stvara novac; P2P samo premješta
+  postojeću štednju. P2P zato **nadopunjuje**, a ne zamjenjuje banku sve do
+  faze 3.
+- **Porez na kamatu** i računovodstvo za građanina zajmodavca moraju biti
+  automatski, inače je ulazni prag previsok **[provjeriti porezni tretman]**.

@@ -1,0 +1,78 @@
+{
+  "tts_provider": null,
+  "voice_id": null,
+  "bgm": {
+    "path": "assets/bgm/track.mp3",
+    "volume": 0.9,
+    "query": "calm hopeful minimal civic underscore, soft piano and pulse, no vocals",
+    "mode": "retrieve",
+    "duration_s": 74
+  },
+  "bgm_pending": false,
+  "bgm_provider": "heygen",
+  "bgm_pid": null,
+  "bgm_log": null,
+  "bgm_mode": "retrieve",
+  "bgm_target_duration_s": null,
+  "bgm_seed_duration_s": null,
+  "bgm_loop_count": null,
+  "voices": [],
+  "sfx": [
+    {
+      "id": "01",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "02",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "03",
+      "name": "impact-bass-1",
+      "file": "assets/sfx/impact-bass-1.mp3",
+      "source": "openverse",
+      "duration_s": 0.78,
+      "license": "by",
+      "credit": "\"bass impact 1.wav\" by aropson is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "05",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    },
+    {
+      "id": "06",
+      "name": "click-soft",
+      "file": "assets/sfx/click-soft.mp3",
+      "source": "openverse",
+      "duration_s": 0.061,
+      "license": "cc0",
+      "credit": "\"Click_1.wav\" by JonnyRuss01 is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+      "offset_s": 0,
+      "volume": 0.35
+    }
+  ],
+  "total_duration_s": 0
+}

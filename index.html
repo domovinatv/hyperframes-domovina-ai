@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="hr" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #04101f;
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        font-family: system-ui, sans-serif;
+      }
+
+      /* ---------- background ---------- */
+      #bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(120% 90% at 50% 42%, #123a6e 0%, #0a2246 42%, #04101f 100%);
+      }
+      #bg-vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(70% 70% at 50% 50%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.62) 100%);
+      }
+      #bg-graph {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1700px;
+        height: 1700px;
+        margin: -850px 0 0 -850px;
+        opacity: 0;
+      }
+      #glow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1300px;
+        height: 1300px;
+        margin: -650px 0 0 -650px;
+        background: radial-gradient(circle, rgba(77, 150, 255, 0.34) 0%, rgba(77, 150, 255, 0) 62%);
+        opacity: 0;
+      }
+
+      /* ---------- lockup ---------- */
+      #lockup {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 64px;
+      }
+      #tile-wrap {
+        width: 400px;
+        height: 400px;
+        flex: 0 0 400px;
+        position: relative;
+        opacity: 0;
+      }
+      #tile-shadow {
+        position: absolute;
+        inset: 0;
+        border-radius: 25px;
+        box-shadow: 0 44px 100px rgba(0, 0, 0, 0.55);
+      }
+      #logo {
+        position: absolute;
+        inset: 0;
+        width: 400px;
+        height: 400px;
+        display: block;
+      }
+
+      #wordmark {
+        width: 690px;
+        flex: 0 0 690px;
+      }
+      #name {
+        font-size: 104px;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        color: #ffffff;
+        white-space: nowrap;
+        line-height: 1.02;
+        opacity: 0;
+      }
+      #name .ai {
+        color: #7fb2ff;
+      }
+      #name .g {
+        display: inline-block;
+        min-width: 0.06em;
+      }
+      #rule {
+        height: 7px;
+        width: 660px;
+        margin-top: 26px;
+        border-radius: 3px;
+        transform-origin: left center;
+        background: linear-gradient(
+          90deg,
+          #ff0000 0%,
+          #ff0000 33.33%,
+          #ffffff 33.33%,
+          #ffffff 66.66%,
+          #1d4f9c 66.66%,
+          #1d4f9c 100%
+        );
+      }
+      #tagline {
+        margin-top: 28px;
+        font-size: 30px;
+        font-weight: 500;
+        letter-spacing: 0.005em;
+        color: #a8c0dc;
+        opacity: 0;
+      }
+      #url {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 11px 24px;
+        border: 1px solid rgba(168, 192, 220, 0.42);
+        border-radius: 999px;
+        font-size: 25px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: #d7e6f7;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="6"
+      data-width="1920"
+      data-height="1080"
+      data-fps="30"
+    >
+      <div id="bg"></div>
+
+      <svg id="bg-graph" viewBox="0 0 512 512" fill="none" aria-hidden="true">
+        <g stroke="#8fc0ff" stroke-width="1.4" stroke-linecap="round">
+          <line x1="205" y1="205" x2="295" y2="225" />
+          <line x1="295" y1="225" x2="285" y2="285" />
+          <line x1="285" y1="285" x2="205" y2="307" />
+          <line x1="205" y1="307" x2="205" y2="205" />
+          <line x1="205" y1="205" x2="245" y2="256" />
+          <line x1="295" y1="225" x2="245" y2="256" />
+          <line x1="285" y1="285" x2="245" y2="256" />
+          <line x1="205" y1="307" x2="245" y2="256" />
+        </g>
+        <g fill="#8fc0ff">
+          <circle cx="205" cy="205" r="6" />
+          <circle cx="295" cy="225" r="6" />
+          <circle cx="205" cy="307" r="6" />
+          <circle cx="285" cy="285" r="6" />
+          <circle cx="245" cy="256" r="9" />
+        </g>
+      </svg>
+
+      <div id="glow"></div>
+      <div id="bg-vignette"></div>
+
+      <div id="stage" class="clip" data-start="0" data-duration="6" data-track-index="0">
+        <div id="lockup">
+          <div id="tile-wrap">
+            <div id="tile-shadow"></div>
+            <svg id="logo" viewBox="0 0 512 512" fill="none" aria-label="Domovina AI">
+              <defs>
+                <linearGradient id="croFlagVertical" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FF0000" />
+                  <stop offset="33.3%" stop-color="#FF0000" />
+                  <stop offset="33.3%" stop-color="#FFFFFF" />
+                  <stop offset="66.6%" stop-color="#FFFFFF" />
+                  <stop offset="66.6%" stop-color="#002F6C" />
+                  <stop offset="100%" stop-color="#002F6C" />
+                </linearGradient>
+                <clipPath id="wipeClip">
+                  <rect id="wipe-rect" x="0" y="64" width="512" height="0" />
+                </clipPath>
+              </defs>
+
+              <rect id="tile" width="512" height="512" rx="32" fill="white" />
+
+              <g clip-path="url(#wipeClip)">
+                <path
+                  d="M72 64H248C354.071 64 440 149.929 440 256C440 362.071 354.071 448 248 448H72V64Z"
+                  fill="url(#croFlagVertical)"
+                />
+              </g>
+
+              <path
+                id="inner-d"
+                d="M168 160H248C301.019 160 344 202.981 344 256C344 309.019 301.019 352 248 352H168V160Z"
+                fill="white"
+              />
+
+              <g id="edges" stroke="#002F6C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="205" y1="205" x2="295" y2="225" />
+                <line x1="295" y1="225" x2="285" y2="285" />
+                <line x1="285" y1="285" x2="205" y2="307" />
+                <line x1="205" y1="307" x2="205" y2="205" />
+                <line x1="205" y1="205" x2="245" y2="256" />
+                <line x1="295" y1="225" x2="245" y2="256" />
+                <line x1="285" y1="285" x2="245" y2="256" />
+                <line x1="205" y1="307" x2="245" y2="256" />
+              </g>
+              <g id="nodes" fill="#002F6C">
+                <circle cx="205" cy="205" r="10" />
+                <circle cx="295" cy="225" r="10" />
+                <circle cx="205" cy="307" r="10" />
+                <circle cx="285" cy="285" r="10" />
+              </g>
+              <circle id="hub" cx="245" cy="256" r="14" fill="#002F6C" />
+              <circle id="hub-ring" cx="245" cy="256" r="14" fill="none" stroke="#002F6C" stroke-width="3" opacity="0" />
+            </svg>
+          </div>
+
+          <div id="wordmark">
+            <div id="name"><span class="word">DOMOVINA</span> <span class="word ai">AI</span></div>
+            <div id="rule"></div>
+            <div id="tagline">AI-asistirane usluge nad medijskim sadržajem</div>
+            <div id="url">domovina.ai</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // Prepare SVG edge draw-on: dash the full length, offset it out of view.
+      const edges = Array.from(document.querySelectorAll("#edges line"));
+      edges.forEach((line) => {
+        const len = line.getTotalLength();
+        line.style.strokeDasharray = len;
+        line.style.strokeDashoffset = len;
+      });
+      const nodes = Array.from(document.querySelectorAll("#nodes circle"));
+
+      // Split the wordmark into per-glyph spans so the tracking-in reveal can run
+      // on transforms (x) instead of letter-spacing, which snaps to device pixels.
+      document.querySelectorAll("#name .word").forEach((word) => {
+        const chars = Array.from(word.textContent);
+        word.textContent = "";
+        chars.forEach((ch) => {
+          const span = document.createElement("span");
+          span.className = "g";
+          span.textContent = ch;
+          word.appendChild(span);
+        });
+      });
+      const glyphs = Array.from(document.querySelectorAll("#name .g"));
+      const glyphMid = (glyphs.length - 1) / 2;
+
+      // --- ambience ---------------------------------------------------------
+      tl.fromTo("#bg", { scale: 1.06, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.2, ease: "power2.out" }, 0);
+      tl.fromTo("#bg-graph", { opacity: 0, rotate: -6 }, { opacity: 0.075, rotate: 4, duration: 5.6, ease: "none" }, 0.2);
+      tl.fromTo("#glow", { opacity: 0, scale: 0.72 }, { opacity: 1, scale: 1, duration: 1.4, ease: "power2.out" }, 0.35);
+
+      // --- tile lands -------------------------------------------------------
+      tl.fromTo(
+        "#tile-wrap",
+        { opacity: 0, scale: 0.82, y: 26 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.85, ease: "back.out(1.5)" },
+        0.25
+      );
+
+      // --- flag "D" wipes down, in flag order: red, white, blue -------------
+      tl.fromTo("#wipe-rect", { attr: { height: 0 } }, { attr: { height: 384 }, duration: 0.95, ease: "power2.inOut" }, 0.7);
+
+      // --- inner white "D" carves out --------------------------------------
+      tl.fromTo(
+        "#inner-d",
+        { opacity: 0, scale: 0.62, transformOrigin: "256px 256px" },
+        { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" },
+        1.45
+      );
+
+      // --- neural graph draws on -------------------------------------------
+      tl.to(edges, { strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", stagger: 0.075 }, 1.85);
+      tl.fromTo(
+        nodes,
+        { scale: 0, transformOrigin: "center center" },
+        { scale: 1, duration: 0.42, ease: "back.out(2.4)", stagger: 0.07 },
+        2.15
+      );
+      tl.fromTo("#hub", { scale: 0, transformOrigin: "center center" }, { scale: 1, duration: 0.5, ease: "back.out(2.8)" }, 2.5);
+      tl.fromTo(
+        "#hub-ring",
+        { opacity: 0.9, scale: 1, transformOrigin: "center center" },
+        { opacity: 0, scale: 3.2, duration: 1.1, ease: "power2.out", immediateRender: false },
+        2.62
+      );
+
+      // --- lockup slides left, wordmark resolves ---------------------------
+      tl.fromTo("#lockup", { x: 377 }, { x: 0, duration: 0.95, ease: "power3.inOut" }, 2.85);
+      tl.fromTo("#name", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.out" }, 3.05);
+      tl.fromTo(
+        glyphs,
+        { opacity: 0, x: (i) => (i - glyphMid) * 16, y: 10 },
+        { opacity: 1, x: 0, y: 0, duration: 0.85, ease: "power3.out", stagger: 0.028 },
+        3.05
+      );
+      tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power3.inOut" }, 3.5);
+      tl.fromTo("#tagline", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 3.85);
+      tl.fromTo("#url", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 4.15);
+
+      // --- hub breathes through the hold -----------------------------------
+      tl.to("#hub", { scale: 1.18, transformOrigin: "center center", duration: 0.75, ease: "sine.inOut", repeat: 1, yoyo: true }, 4.3);
+      tl.to("#glow", { scale: 1.07, duration: 0.9, ease: "sine.inOut", repeat: 1, yoyo: true }, 4.2);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

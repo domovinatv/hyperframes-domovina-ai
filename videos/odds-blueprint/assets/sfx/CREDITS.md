@@ -1,0 +1,5 @@
+# Sound effect credits
+
+These sounds are licensed CC BY: credit them wherever the video is published.
+
+- `assets/sfx/impact-bass-1.mp3`: "bass impact 1.wav" by aropson is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/. Source: https://freesound.org/people/aropson/sounds/429161

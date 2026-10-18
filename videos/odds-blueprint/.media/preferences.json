@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "youtube",
+      "confirmed_in": [
+        "odds-blueprint"
+      ],
+      "updated_at": "2026-10-18T10:27:53.633Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "odds-blueprint"
+      ],
+      "updated_at": "2026-10-18T10:27:53.665Z"
+    },
+    "language": {
+      "value": "hr",
+      "confirmed_in": [
+        "odds-blueprint"
+      ],
+      "updated_at": "2026-10-18T10:27:53.696Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "odds-blueprint"
+      ],
+      "updated_at": "2026-10-18T10:27:53.727Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "odds-blueprint"
+      ],
+      "updated_at": "2026-10-18T10:27:53.759Z"
+    },
+    "style_preset.faceless-explainer": {
+      "value": "blue-professional",
+      "confirmed_in": [
+        "odds-blueprint"
+      ],
+      "updated_at": "2026-10-18T10:38:00.812Z"
+    }
+  },
+  "sightings": {}
+}

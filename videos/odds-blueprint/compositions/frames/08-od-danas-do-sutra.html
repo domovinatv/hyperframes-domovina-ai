@@ -1,0 +1,60 @@
+<template>
+  <div data-hf-id="hf-8qjy" id="root" data-composition-id="08-od-danas-do-sutra" data-start="0" data-duration="7" data-width="1920" data-height="1080">
+    <style>
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: system-ui, sans-serif; }
+      #root .f08-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 900px 600px at 50% 40%, rgba(0,47,108,0.28), rgba(4,16,31,0) 70%), #04101f; }
+      #root .f08-ph { position: absolute; top: 330px; width: 640px; margin-left: -320px; height: 140px; line-height: 140px; text-align: center; font-size: 124px; font-weight: 700; letter-spacing: -0.02em; color: #fff; white-space: pre; }
+      #root #f08-a { left: 400px; }
+      #root #f08-b { left: 1520px; }
+      #root .f08-ch { display: inline-block; }
+      #root #f08-line { position: absolute; left: 700px; top: 390px; width: 520px; height: 20px; overflow: visible; }
+      #root #f08-line path { fill: none; stroke: #7fb2ff; stroke-width: 6; stroke-linecap: round; }
+      #root #f08-url { position: absolute; left: 560px; width: 800px; top: 560px; height: 96px; border-radius: 100px; border: 2px solid rgba(127,178,255,0.55); background: rgba(127,178,255,0.10); color: #7fb2ff; font-size: 54px; font-weight: 600; letter-spacing: 0.01em; display: flex; align-items: center; justify-content: center; }
+      #root #f08-tag { position: absolute; left: 260px; width: 1400px; top: 730px; text-align: center; font-size: 40px; font-weight: 400; color: rgba(255,255,255,0.72); }
+      #root #f08-fade { position: absolute; inset: 0; background: #04101f; opacity: 0; }
+    </style>
+    <div data-hf-id="hf-5zkf" class="clip f08-bg" data-start="0" data-duration="7" data-track-index="0"></div>
+    <div data-hf-id="hf-o53h" id="f08-a" class="f08-ph" data-split="od danas"></div>
+    <svg data-hf-id="hf-mrnx" id="f08-line" viewBox="0 0 520 20"><path data-hf-id="hf-r8qr" id="f08-linep" d="M3 10 H517"/></svg>
+    <div data-hf-id="hf-gqya" id="f08-b" class="f08-ph" data-split="do sutra"></div>
+    <div data-hf-id="hf-jv82" id="f08-url">odds.domovina.ai</div>
+    <div data-hf-id="hf-2oru" id="f08-tag">Svaka brojka s izvorom. Otvoreno za provjeru.</div>
+    <div data-hf-id="hf-ulck" id="f08-fade"></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (function () {
+        ["f08-a", "f08-b"].forEach(function (id) {
+          var el = document.getElementById(id);
+          var s = el.getAttribute("data-split");
+          for (var i = 0; i < s.length; i++) {
+            var c = document.createElement("span");
+            c.className = "f08-ch";
+            c.textContent = s[i];
+            el.appendChild(c);
+          }
+        });
+        var tl = gsap.timeline({ paused: true });
+        var p = document.getElementById("f08-linep");
+        var len = p.getTotalLength();
+        p.style.strokeDasharray = len;
+        p.style.strokeDashoffset = len;
+
+        // Scene 1: "od danas" letters cascade (hero visible by 0.5s)
+        tl.fromTo("#f08-a .f08-ch", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out", stagger: 0.08 }, 0.1);
+        // Scene 2: line draws, "do sutra" enters at its end
+        tl.to("#f08-linep", { strokeDashoffset: 0, duration: 1.0, ease: "power2.out" }, 2.0);
+        tl.fromTo("#f08-b .f08-ch", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out", stagger: 0.07 }, 2.85);
+        // Scene 3: merge into centered lockup
+        tl.to("#f08-a", { x: 230, duration: 1.2, ease: "power3.inOut" }, 3.5);
+        tl.to("#f08-b", { x: -230, duration: 1.2, ease: "power3.inOut" }, 3.5);
+        tl.to("#f08-line", { scaleX: 0.22, transformOrigin: "50% 50%", duration: 1.2, ease: "power3.inOut" }, 3.5);
+        tl.fromTo("#f08-url", { opacity: 0, y: 24, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 4.2);
+        // Scene 4: tagline, hold, final fade to dark
+        tl.fromTo("#f08-tag", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, 5.0);
+        tl.to("#f08-fade", { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 6.4);
+        window.__timelines = window.__timelines || {};
+        window.__timelines["08-od-danas-do-sutra"] = tl;
+      })();
+    </script>
+  </div>
+</template>

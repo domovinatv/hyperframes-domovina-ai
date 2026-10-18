@@ -1,0 +1,8 @@
+· no SCRIPT.md — silent film (BGM only)
+  bgm: assets/bgm/track.mp3 (retrieve "calm hopeful minimal civic underscore, soft piano and pulse, no vocals")
+✓ audio engine → /Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/odds-blueprint/audio_engine_meta.json
+  heygen: yes  ·  ran: tts,bgm
+  voices: 0  ·  bgm: heygen  ·  sfx: 0
+  total voice duration: 0s
+✓ audio generate: 0 voice + 1 bgm → /Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/odds-blueprint/audio_meta.json
+exit=0
