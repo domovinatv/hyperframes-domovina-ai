@@ -84,4 +84,22 @@ Izmjereno na Demucs vokalu (< −40 dB, ≥ 0,8 s):
 - Beatovi oko rubova: [145.496, 146.193, 146.866, 147.54, 148.236, 365.529, 366.063, 366.573, 367.247, 367.92]
 - Ostale pauze: 366,1–367,8 · 368,8–370,5 · 377,0–377,7 · outro pjesme 405,9–424,3.
 
+**Obrada s domovina.ai (2026-10-19)** — sažetak u `analiza/domovina-ai-obrada.md`,
+izvor `/Volumes/DOMOVINA2TB/fetch_domovina_tv_output/_unlisted/20250613_m_p_thompson_kralj_tomislav_official_video_yt_yD9r0grKCkA.*`:
+- `.mp3.speechmatics.json`: vremena riječi točna za 89–145 i 257–310 s → koristiti
+  UMJESTO whispera za A/B i početak C (npr. „Žezlo i kruna" 111,86; „Blagoslov"
+  305,07; „Tomislav je kralj" 308,01). Od 322 s tekst smeće, granice riječi upotrebljive.
+  Speechmatics kaže da refren završava 144,0, a RMS vokala 145,4 (držani ton) — rez 147,54 pokriva oboje.
+- SPEAKER_00/02 su ASR halucinacije nad instrumentalom — nikad na ekran.
+- Heatmap gledanosti: najgledanije 242–290 s („Kad s perona…", Zagreb, vrh 259 s)
+  i 314–348 s; A/B dio slabiji. → kandidat za isječak D (pitati korisnika).
+- Krediti: snimano na utvrdi Ribnik; AI scene AION / Domagoj Mažuran — u outro karticu.
+  Hashtagovi iz opisa: #mpthompson #kraljtomislav (za opis pri dijeljenju).
+- Prijedlozi natpisa s vremenima na dnu domovina-ai-obrada.md (npr. A @127,9
+  Jadran → Drava, C @305,07 „Papin blagoslov"). Povijesne činjenice NISU iz
+  obrade — potvrditi prije stavljanja na ekran.
+- Magisterium HR/EN: još ništa na disku (očekivano `…article.magisterium*.json`
+  u istoj mapi) — provjeriti prije ugradnje činjenica.
+- Titlovi: tekst SAMO onaj koji je korisnik dao u chatu (ne kopirati iz `.description`).
+
 Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
