@@ -118,3 +118,20 @@ izvor `/Volumes/DOMOVINA2TB/fetch_domovina_tv_output/_unlisted/20250613_m_p_thom
   Vremena riječi: Speechmatics je točan za 257–310 s.
 
 Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
+
+**Odluke korisnika 2026-10-19 (večer) — storyboard prije rendera:**
+- **Isječak D potvrđen: 252,x–297,1 (~45 s)** — kraj u pauzi vokala, spaja se na C.
+  Početak na beatu (252,308 ili 252,935) u instrumentalu 222,9–257,1.
+- **Magisterium: kratki citat na ekranu**, jedan po isječku, izvor u outro kartici.
+  Izvadak po isječcima: `analiza/magisterium.md`. `enrichment` je parafraza AI-ja —
+  citat provjeriti na `source_url` (Magisterium MCP `fetch`) i na ekran staviti
+  rečenicu iz dokumenta ili „prema …". Pazi: kadar 4:47 („papin blagoslov") je u D,
+  ali sam stih „Blagoslov od pape" (305,07) je u C.
+- **Redoslijed rada:** (1) rubovi + audio, pun refren, intro/outro kartice, D,
+  povijesni kontekst + citat u film.js → (2) **HyperFrames storyboard** za A, B, C, D:
+  `boards/storyboard.html` + `STORYBOARD.md` (recept: hyperframes-creative
+  `references/storyboard-recipe.md`), still po ključnom trenutku (intro kartica,
+  prvi stih, refren/vrhunac, povijesna činjenica, citat, outro), 16:9 i 9:16 —
+  snapshot iz privremene kopije gdje je odabrana kompozicija `index.html`;
+  **STOP dok korisnik ne odobri board** → (3) render 8 videa → (4) faststart, R2,
+  landing (gumb D, `#d`, trajanja), deploy, provjera 206 → (5) pitati za WhatsApp.
