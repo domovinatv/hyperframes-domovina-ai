@@ -113,8 +113,8 @@ izvor `/Volumes/DOMOVINA2TB/fetch_domovina_tv_output/_unlisted/20250613_m_p_thom
   o junaštvu tvom", = početak C).
   Prijedlog: **D ≈ 252,x–297,1** (~45 s; kraj u pauzi i spaja se točno na C),
   alternativa kraj 284,24 (~32 s). Beatovi/fraze oko početka: [250.822, 251.565, 252.308, 252.935, 253.585, 254.212, 254.885, 255.536, 256.186, 256.813] [243.136, 254.212]
-  Tekst D strofa korisnik je dao u chatu 2026-10-19 (cijela pjesma) — ponovo ga
-  zatražiti u novoj sesiji (nije spremljen u repo zbog autorskih prava).
+  Cijeli tekst (od korisnika) je lokalno u `assets/izvor/tekst-od-korisnika.txt`
+  (gitignored — ne commitati).
   Vremena riječi: Speechmatics je točan za 257–310 s.
 
 Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
