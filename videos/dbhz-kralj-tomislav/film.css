@@ -1,0 +1,233 @@
+/* Natpisi preko 3D biste. Boje = viewer spec (pozadina #0c1c13, zlatni
+   prsten #D99E12) + krem iz bračkog kamena. Jedan set tokena za oba formata. */
+@font-face {
+  font-family: "Cinzel";
+  src: url("assets/fonts/cinzel-latin.woff2") format("woff2");
+  font-weight: 400 900;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212;
+}
+@font-face {
+  font-family: "Cinzel";
+  src: url("assets/fonts/cinzel-latin-ext.woff2") format("woff2");
+  font-weight: 400 900;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --pozadina: #0c1c13;
+  --pozadina-svijetla: #173425;
+  --zlato: #d99e12;
+  --krem: #efe9d8;
+  --krem-tiho: rgba(239, 233, 216, 0.62);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--pozadina);
+}
+#root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse 70% 60% at var(--fokus-x) var(--fokus-y), var(--pozadina-svijetla) 0%, var(--pozadina) 62%, #060e09 100%);
+  font-family: "Cinzel", serif;
+  color: var(--krem);
+}
+#bista {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sloj {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Uvod */
+.uvod-in {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak);
+}
+.eyebrow {
+  font-size: var(--eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: var(--zlato);
+}
+#uvod h1 {
+  font-size: var(--naslov);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: 0.14em;
+  color: var(--krem);
+}
+.crta {
+  width: var(--crta);
+  height: 3px;
+  background: var(--zlato);
+  transform-origin: left center;
+}
+.podnaslov {
+  font-size: var(--podnaslov);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--krem-tiho);
+}
+
+/* Stihovi */
+#stihovi {
+  position: absolute;
+}
+.stih {
+  position: absolute;
+  inset: 0;
+  font-size: var(--stih);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  color: var(--krem);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
+}
+.rijec {
+  display: inline-block;
+}
+
+/* Odjava */
+.odjava-in {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: var(--razmak);
+}
+.odjava-in .dbhz {
+  font-size: var(--eyebrow);
+  letter-spacing: 0.32em;
+  color: var(--zlato);
+  font-weight: 500;
+}
+.odjava-in .poruka {
+  font-size: var(--odjava);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+}
+.odjava-in .adresa {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--adresa);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--krem);
+}
+.odjava-in .zasluge {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--sitno);
+  line-height: 1.45;
+  color: var(--krem-tiho);
+}
+.odjava-in .napomena {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--sitno);
+  color: rgba(239, 233, 216, 0.45);
+  font-style: italic;
+}
+
+#zatamnjenje {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+}
+
+/* 16:9 — bista desno, tekst u lijevoj trećini */
+.landscape {
+  --fokus-x: 64%;
+  --fokus-y: 48%;
+  --razmak: 22px;
+  --eyebrow: 26px;
+  --naslov: 104px;
+  --podnaslov: 34px;
+  --crta: 180px;
+  --stih: 76px;
+  --odjava: 64px;
+  --adresa: 34px;
+  --sitno: 22px;
+}
+.landscape .uvod-in,
+.landscape .odjava-in {
+  left: 128px;
+  top: 0;
+  bottom: 0;
+  width: 760px;
+  justify-content: center;
+}
+.landscape #stihovi {
+  left: 128px;
+  top: 400px;
+  width: 760px;
+  height: 280px;
+}
+.landscape .stih {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  column-gap: 0.32em;
+}
+
+/* 9:16 — bista u sredini, tekst gore i dolje */
+.portrait {
+  --fokus-x: 50%;
+  --fokus-y: 44%;
+  --razmak: 22px;
+  --eyebrow: 30px;
+  --naslov: 112px;
+  --podnaslov: 38px;
+  --crta: 200px;
+  --stih: 84px;
+  --odjava: 72px;
+  --adresa: 40px;
+  --sitno: 26px;
+}
+.portrait .uvod-in {
+  left: 80px;
+  right: 80px;
+  top: 190px;
+  align-items: center;
+  text-align: center;
+}
+.portrait .uvod-in .crta {
+  transform-origin: center center;
+}
+.portrait #stihovi {
+  left: 80px;
+  right: 80px;
+  bottom: 250px;
+  height: 260px;
+}
+.portrait .stih {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  column-gap: 0.32em;
+}
+.portrait .odjava-in {
+  left: 80px;
+  right: 80px;
+  bottom: 200px;
+  align-items: center;
+  text-align: center;
+}
