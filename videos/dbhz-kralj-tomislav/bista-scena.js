@@ -205,6 +205,8 @@ function rotationAt(FILM, t) {
   }
   const last = k[k.length - 1];
   if (t > last.t) turns += last.v * (t - last.t);
+  // prije prve točke (intro kartica): ista brzina unatrag
+  if (t < k[0].t) turns -= k[0].v * (k[0].t - t);
   return turns;
 }
 

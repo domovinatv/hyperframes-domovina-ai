@@ -144,6 +144,47 @@ body {
   font-style: italic;
 }
 
+.odjava-in .izvori {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--sitnije);
+  color: var(--krem-tiho);
+}
+
+/* Povijesni kontekst i citat */
+.kartica {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 22px;
+  border-left: 3px solid var(--zlato);
+  opacity: 0;
+}
+.kartica .oznaka {
+  font-size: var(--eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--zlato);
+}
+.kartica .tekst {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--kontekst);
+  line-height: 1.32;
+  color: var(--krem);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+}
+#citat .tekst {
+  font-family: "Cinzel", serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.kartica .izvor {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--sitno);
+  color: var(--krem-tiho);
+}
+
 #zatamnjenje {
   position: absolute;
   inset: 0;
@@ -164,6 +205,13 @@ body {
   --odjava: 64px;
   --adresa: 34px;
   --sitno: 22px;
+  --sitnije: 18px;
+  --kontekst: 34px;
+}
+.landscape .kartica {
+  left: 128px;
+  top: 720px;
+  width: 760px;
 }
 .landscape .uvod-in,
 .landscape .odjava-in {
@@ -199,6 +247,13 @@ body {
   --odjava: 72px;
   --adresa: 40px;
   --sitno: 26px;
+  --sitnije: 22px;
+  --kontekst: 40px;
+}
+.portrait .kartica {
+  left: 90px;
+  right: 90px;
+  top: 150px;
 }
 .portrait .uvod-in {
   left: 80px;

@@ -6,14 +6,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 FORMATI = {"16x9": (1920, 1080, "landscape", "16:9"), "9x16": (1080, 1920, "portrait", "9:16")}
-# (isječak, format, trajanje u s, datoteka)
+PRED = 2  # intro kartica prije pjesme (film.js → PRED)
+# isječak: (trajanje filma u s, trajanje audija) — moraju odgovarati film.js
+# (FILMOVI.x.duration, FILMOVI.x.audioTrajanje); provjera: node provjeri-trajanja.mjs
+ISJECCI = {"a": (68.41, 66.41), "b": (42.5, 40.5), "c": (75.147, 70.147), "d": (49.792, 44.792)}
+# (isječak, format, datoteka)
 KOMPOZICIJE = [
-    ("a", "16x9", 60, "index.html"),
-    ("a", "9x16", 60, "formati/a-9x16.html"),
-    ("b", "16x9", 34.09, "formati/b-16x9.html"),
-    ("b", "9x16", 34.09, "formati/b-9x16.html"),
-    ("c", "16x9", 47.97, "formati/c-16x9.html"),
-    ("c", "9x16", 47.97, "formati/c-9x16.html"),
+    ("a", "16x9", "index.html"),
+    ("a", "9x16", "formati/a-9x16.html"),
+    ("b", "16x9", "formati/b-16x9.html"),
+    ("b", "9x16", "formati/b-9x16.html"),
+    ("c", "16x9", "formati/c-16x9.html"),
+    ("c", "9x16", "formati/c-9x16.html"),
+    ("d", "16x9", "formati/d-16x9.html"),
+    ("d", "9x16", "formati/d-9x16.html"),
 ]
 
 TPL = """<!doctype html>
@@ -58,6 +64,19 @@ TPL = """<!doctype html>
 
       <div class="sloj"><div id="stihovi"></div></div>
 
+      <div id="kontekst" class="sloj">
+        <div id="fakt" class="kartica">
+          <p class="oznaka"></p>
+          <p class="tekst"></p>
+          <p class="izvor"></p>
+        </div>
+        <div id="citat" class="kartica">
+          <p class="oznaka">CRKVA O DOMOLJUBLJU</p>
+          <p class="tekst"></p>
+          <p class="izvor"></p>
+        </div>
+      </div>
+
       <div id="odjava" class="sloj">
         <div class="odjava-in">
           <p class="dbhz" data-copy="dbhz">DBHZ · DIGITALNI MUZEJ</p>
@@ -65,12 +84,13 @@ TPL = """<!doctype html>
           <p class="adresa" data-copy="adresa">dbhz-3d-modeli.domovina.ai</p>
           <p class="zasluge" data-copy="zasluge">Glazba: Marko Perković Thompson</p>
           <p class="napomena" data-copy="napomena">Ilustrativna 3D digitalizacija.</p>
+          <p class="izvori" data-copy="izvori">Izvori</p>
         </div>
       </div>
 
       <div id="zatamnjenje"></div>
 
-      <audio id="pjesma" src="{BASE}assets/pjesma-{FILM}.m4a" data-start="0" data-duration="{DUR}" data-track-index="10" data-volume="1"></audio>
+      <audio id="pjesma" src="{BASE}assets/pjesma-{FILM}.m4a" data-start="{PRED}" data-duration="{ADUR}" data-track-index="10" data-volume="1"></audio>
     </div>
     <script type="module">
       import {{ buildFilm }} from "{BASE}main.js";
@@ -80,11 +100,12 @@ TPL = """<!doctype html>
 </html>
 """
 
-for film, fmt, dur, out in KOMPOZICIJE:
+for film, fmt, out in KOMPOZICIJE:
+    dur, adur = ISJECCI[film]
     w, h, cls, label = FORMATI[fmt]
     base = "../" * out.count("/") or "./"
     html = TPL.format(W=w, H=h, CLS=cls, FORMAT=label, FILM=film, FILM_UP=film.upper(),
-                      ID=f"kralj-tomislav-{film}-{fmt}", DUR=dur, BASE=base)
+                      ID=f"kralj-tomislav-{film}-{fmt}", DUR=dur, ADUR=adur, PRED=PRED, BASE=base)
     (ROOT / out).parent.mkdir(parents=True, exist_ok=True)
     (ROOT / out).write_text(html)
     print(out)
