@@ -1,3 +1,19 @@
+# Stanje (2026-10-19, večer) — DRUGA ITERACIJA GOTOVA I OBJAVLJENA
+
+A 68,4 s · B 42,5 s · D 49,8 s · C 75,2 s, svaki 16:9 + 9:16, na
+https://dbhz-thompson.domovina.ai (`#b`, `#c`, `#d`). Storyboard:
+`boards/storyboard.html`. Izvori konteksta/citata: `analiza/povijesni-kontekst.md`,
+Magisterium izvadak: `analiza/magisterium.md`. Postupak: README u dbhz-thompson.
+
+Otvoreno:
+- Pitati korisnika prije slanja u WhatsApp grupu „DBHZ 3D scan"
+  (JID 120363421678500642@g.us).
+- Puštanje na pravom iPhoneu nije isprobano (provjeren 206).
+- Krediti spota (Ribnik / AION) nisu u outro kartici: video ne koristi kadrove
+  spota, samo audio — dodati ako korisnik želi.
+
+(Ispod: povijest plana, za kontekst.)
+
 # Stanje (2026-10-19)
 
 Gotovo:
