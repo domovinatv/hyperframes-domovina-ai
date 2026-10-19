@@ -6,7 +6,7 @@ https://dbhz-thompson.domovina.ai (`#b`, `#c`, `#d`). Storyboard:
 Magisterium izvadak: `analiza/magisterium.md`. Postupak: README u dbhz-thompson.
 
 Otvoreno:
-- Poslano u WhatsApp grupu „DBHZ 3D scan" (JID 120363421678500642@g.us)
+- Poslano u WhatsApp grupu „DBHZ 3D scan"
   2026-10-19 navečer: uvodna poruka + svih 8 videa (A, B, D, C × 16:9, 9:16).
   Čekaju se reakcije grupe.
 - Puštanje na pravom iPhoneu nije isprobano (provjeren 206).
@@ -86,7 +86,7 @@ Fali (korisnik odobrio 2026-10-19, ovim redom):
 3. Re-render svih 6, faststart, R2 (isti ključevi), deploy, provjera 206;
    ažurirati trajanja na landingu (kartice i gumbi) i README u dbhz-thompson.
 4. Pitati prije slanja novih videa u WhatsApp grupu „DBHZ 3D scan"
-   (JID 120363421678500642@g.us; MCP list_chats ne vraća ništa, send radi).
+   (MCP list_chats ne vraća ništa, send radi).
 
 **Rubovi isječaka — odluka korisnika 2026-10-19: svaki počinje i završava u
 pauzi vokala** (pravе tišine u miksu nema, min ~−23 dB; rez na beatu + kratki fade).

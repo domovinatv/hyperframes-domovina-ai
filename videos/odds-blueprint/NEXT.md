@@ -34,7 +34,7 @@ commita odlučiti: `git init` + novi GitHub repo, ili ostaviti lokalno.
 ## Stanje 2026-10-18 (autonomni nastavak)
 - Mode autonomous (korisnik), skice preskočene. BGM iz HeyGena (free plan), 5 SFX (1 je CC BY → atribucija u opisu).
 - Step 4 napisan u STORYBOARD.md; Step 5: svih 8 okvira izgradili Sonnet workeri, GSAP ujednačen na 3.14.2, index.html sastavljen (92 s).
-- Sljedeće: transitions inject/verify → lint → check → snapshot → render renders/video.mp4 → WhatsApp „Matija Only" (JID 385989679022-1532363185@g.us; MCP list_chats vraća prazno, ali bridge radi).
+- Sljedeće: transitions inject/verify → lint → check → snapshot → render renders/video.mp4 → WhatsApp „Matija Only".
 
 ## Gotovo 2026-10-18 12:51
 - lint 0 grešaka, check prošao; okvir 03 ručno popravljen (žig ODBIJENO u jednom redu, mreža proširena za pull-back).
