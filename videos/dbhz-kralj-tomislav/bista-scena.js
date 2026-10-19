@@ -5,12 +5,11 @@
 // daje isti piksel za isti t. Kamera je fiksna na 8° iznad horizonta, rotira
 // se MODEL oko Y (kao na nativnim platformama u spec-u).
 //
-// Sve brojke filma (vremena, materijali, kamera) su u FILM (film.js); ovdje su
-// samo spec konstante viewera.
+// Sve brojke filma (vremena, materijali, kamera) su u film.js i dolaze kao
+// parametar FILM; ovdje su samo spec konstante viewera.
 
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { FILM } from "./film.js";
 
 // Spec viewera (VIEWER-SPEC.md) — iste vrijednosti kao web-vanilla SPEC.
 export const SPEC = {
@@ -54,7 +53,7 @@ function track(keys, t) {
 // Od svake promjene varijante vrijednost eksponencijalno ide prema cilju, a
 // početna vrijednost je ono što je prethodni prijelaz stigao do te točke —
 // isti rezultat kao frame-by-frame lerp, ali bez ovisnosti o povijesti kadrova.
-function materialAt(t) {
+function materialAt(FILM, t) {
   const steps = FILM.materials;
   const toVec = (name) => {
     const v = SPEC.variants[name];
@@ -71,7 +70,7 @@ function materialAt(t) {
   return cur;
 }
 
-export function mountBista(canvas, { width, height, layout }) {
+export function mountBista(canvas, { width, height, layout, film: FILM, base = "" }) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(1);
   renderer.setSize(width, height, false);
@@ -119,7 +118,7 @@ export function mountBista(canvas, { width, height, layout }) {
     opacity: 0,
     depthWrite: false,
   });
-  const ring = new THREE.Mesh(new THREE.RingGeometry(1.0, 1.035, 160), ringMat);
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.82, 0.85, 160), ringMat);
   ring.rotation.x = -Math.PI / 2;
   ring.position.y = SPEC.contactShadow.y + 0.002;
   scene.add(ring);
@@ -142,7 +141,7 @@ export function mountBista(canvas, { width, height, layout }) {
     return Math.max(distV, distW);
   }
 
-  const ready = new GLTFLoader().loadAsync("assets/tomislav-bista.glb").then((gltf) => {
+  const ready = new GLTFLoader().loadAsync(`${base}assets/tomislav-bista.glb`).then((gltf) => {
     const model = gltf.scene;
     model.traverse((o) => {
       if (o.isMesh) {
@@ -166,10 +165,12 @@ export function mountBista(canvas, { width, height, layout }) {
     camera.lookAt(0, track(cam.lookY, t), 0);
 
     // Rotacija modela: kut je integral brzine iz FILM.rotation (u okretajima).
-    pivot.rotation.y = THREE.MathUtils.degToRad(FILM.rotation.startDeg) + rotationAt(t) * Math.PI * 2;
+    // Kut je takav da je lice (frontDeg) prema kameri točno u frontAt.
+    const turns = rotationAt(FILM, t) - rotationAt(FILM, FILM.rotation.frontAt);
+    pivot.rotation.y = THREE.MathUtils.degToRad(FILM.rotation.frontDeg) + turns * Math.PI * 2;
 
     const light = track(FILM.light, t); // 0 = mrak, 1 = spec intenziteti
-    const pulse = beatPulse(t);
+    const pulse = beatPulse(FILM, t);
     ambient.intensity = SPEC.lights.ambient * light;
     key.intensity = SPEC.lights.key.intensity * light * (1 + 0.18 * pulse);
     fill.intensity = SPEC.lights.fill.intensity * light;
@@ -178,7 +179,7 @@ export function mountBista(canvas, { width, height, layout }) {
     ringMat.opacity = 0.85 * gold;
     ring.scale.setScalar(1 + 0.04 * pulse);
 
-    const [r, g, b, metalness, roughness] = materialAt(t);
+    const [r, g, b, metalness, roughness] = materialAt(FILM, t);
     material.color.setRGB(r, g, b);
     material.metalness = metalness;
     material.roughness = roughness;
@@ -191,7 +192,7 @@ export function mountBista(canvas, { width, height, layout }) {
 
 // Okretaji do trenutka t: brzina (okretaja/s) je po dijelovima linearna, pa je
 // kut zbroj trapeza — deterministički, bez akumulacije po kadrovima.
-function rotationAt(t) {
+function rotationAt(FILM, t) {
   const k = FILM.rotation.speed;
   let turns = 0;
   for (let i = 1; i < k.length; i++) {
@@ -209,7 +210,7 @@ function rotationAt(t) {
 
 // Kratki puls na jakim dobama (beatovi iz audiomap.json), samo unutar
 // prozora FILM.pulseWindows. Brzi napad, eksponencijalno gašenje.
-function beatPulse(t) {
+function beatPulse(FILM, t) {
   const inWindow = FILM.pulseWindows.some(([a, b]) => t >= a && t < b);
   if (!inWindow) return 0;
   let last = -Infinity;

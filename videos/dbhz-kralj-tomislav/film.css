@@ -140,7 +140,7 @@ body {
 .odjava-in .napomena {
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: var(--sitno);
-  color: rgba(239, 233, 216, 0.45);
+  color: var(--krem-tiho);
   font-style: italic;
 }
 
@@ -203,7 +203,7 @@ body {
 .portrait .uvod-in {
   left: 80px;
   right: 80px;
-  top: 190px;
+  top: 120px;
   align-items: center;
   text-align: center;
 }
@@ -227,7 +227,7 @@ body {
 .portrait .odjava-in {
   left: 80px;
   right: 80px;
-  bottom: 200px;
+  bottom: 120px;
   align-items: center;
   text-align: center;
 }

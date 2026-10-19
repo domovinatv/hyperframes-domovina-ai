@@ -28,15 +28,15 @@ Kandidati za isječak (rubovi na fraze iz audiomapa):
 - B 108,3–144,13 ≈ 36 s: samo 1. refren — za Reels/Shorts.
 - C 296,6–335,6 ≈ 39 s: „…Blagoslov od pape, Tomislav je kralj" + završni refren.
 
+Isječak A: GOTOV (2026-10-19) — `index.html` (16:9) i `formati/a-9x16.html`,
+render 60,0 s oba, objavljeno na https://dbhz-thompson.domovina.ai
+(repo dbhzhr/dbhz-thompson). HTML se generira: `python3 generiraj-kompozicije.py`.
+9:16 snapshot: `snapshot` ne prima `-c`, pa privremena kopija projekta gdje je
+vertikalna datoteka `index.html` (sed `"../` → `"./`).
+
 Fali:
-1. (venv za analize: librosa + numpy<2.5 — sistemski numba ne radi s NumPy 2.5;
-   faster-whisper dobiva numpy niz jer mu PyAV u venvu ne prima `metadata_errors`.)
-2. Odabrati isječak (~45–60 s) oko „zlato i kruna" / refrena → `film.js` (FILM:
-   duration, materials, rotation, camera, light, gold, beats, pulseWindows,
-   lyrics, copy, layout, fadeOut) + ffmpeg rez s fadeom → `assets/pjesma.m4a`.
-3. `index.html` (1920×1080) i `vertical.html` (1080×1920): importmap three@0.169.0,
-   gsap, `<canvas id="bista">`, `#uvod`, `#stihovi`, `#odjava`, `#zatamnjenje`,
-   `<audio id="pjesma">`; root `data-duration`.
-4. `npx hyperframes check`, snapshotovi, preview, render oba formata.
-5. Novi repo `dbhzhr/dbhz-thompson` (private) + landing na dbhz-thompson.domovina.ai
-   po uzoru na odds.domovina.ai (Worker + R2 zbog Range/206), `noindex`.
+1. Korisnik pregledava A; zatim B (108,3–144,13) pa C (296,6–335,6):
+   ffmpeg rez → `assets/pjesma-<x>.m4a`, `FILMOVI.<x>` u film.js (vremena
+   riječi iz analiza/stihovi-faster-whisper.json, beatovi iz audiomapa),
+   dodati u KOMPOZICIJE u generatoru, snapshot, render, upload u R2,
+   landing: makni „u izradi" i dodaj izbor isječka.

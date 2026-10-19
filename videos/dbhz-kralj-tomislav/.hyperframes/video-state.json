@@ -1,0 +1,648 @@
+{
+  "version": 1,
+  "historyId": "be93778e-dfeb-4a5e-bc14-56144ef972b8",
+  "currentRevision": "7737a7f4-4902-4be4-87e1-619a01cea25b",
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "BRIEF.md": {
+      "hash": "ef025ce5ccec974c527c212c9d80dc3ed73547f552459fa8798f0c53da54308d",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/ef/ef025ce5ccec974c527c212c9d80dc3ed73547f552459fa8798f0c53da54308d"
+    },
+    "CLAUDE.md": {
+      "hash": "1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/1d/1d4f0c8ca2507b94fd7c9df709fff01416adbd51a0f922b9d6ed2f40129147d5"
+    },
+    "NEXT.md": {
+      "hash": "537d1e3e07bf388dcec6f98a13a64cfc68cc5ae09f91c859fb82e1bb9d0eaa58",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/53/537d1e3e07bf388dcec6f98a13a64cfc68cc5ae09f91c859fb82e1bb9d0eaa58"
+    },
+    "analiza/audiomap-full.json": {
+      "hash": "d8f568a9682254d518390596c559f0c57886cca524cf4eea0e8a63e9ad65ad25",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/d8/d8f568a9682254d518390596c559f0c57886cca524cf4eea0e8a63e9ad65ad25"
+    },
+    "analiza/stihovi-faster-whisper.json": {
+      "hash": "7cada5019d801bc64f4c10abf711a235f9d2a1d0a0381bacb80f1af47e54c659",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/7c/7cada5019d801bc64f4c10abf711a235f9d2a1d0a0381bacb80f1af47e54c659"
+    },
+    "analiza/transkripcija-faster-whisper.py": {
+      "hash": "cd1f9bbab5c7bdc0958491125af96c9b6cbff6fb322fd0ebce9dc47bfe72b2e9",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/cd/cd1f9bbab5c7bdc0958491125af96c9b6cbff6fb322fd0ebce9dc47bfe72b2e9"
+    },
+    "assets/fonts/cinzel-latin-ext.woff2": {
+      "hash": "bd11c74f54739723a68677a077d6d562f3e5d09b9bb822eb658ee5314d1a9614",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/bd/bd11c74f54739723a68677a077d6d562f3e5d09b9bb822eb658ee5314d1a9614"
+    },
+    "assets/fonts/cinzel-latin.woff2": {
+      "hash": "ef95296c778719c3d658a8284d65078100450948851b9114485ada01d9d3d3f8",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/ef/ef95296c778719c3d658a8284d65078100450948851b9114485ada01d9d3d3f8"
+    },
+    "bista-scena.js": {
+      "hash": "7c658e6e62ed585b2409baaa9317cf10e5cad07fd5b99055c843c98fbe3303cf",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/7c/7c658e6e62ed585b2409baaa9317cf10e5cad07fd5b99055c843c98fbe3303cf"
+    },
+    "film.css": {
+      "hash": "1902801084755c31c52bbfaa44b035dbd998b86cd993fb4aa53927c485e25800",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/19/1902801084755c31c52bbfaa44b035dbd998b86cd993fb4aa53927c485e25800"
+    },
+    "film.js": {
+      "hash": "6edebbd8b90848839ad63c2a6a2652db451e6f82ebc8d337280a8c643e7d07db",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/6e/6edebbd8b90848839ad63c2a6a2652db451e6f82ebc8d337280a8c643e7d07db"
+    },
+    "formati/a-9x16.html": {
+      "hash": "ce00c0990b52769b00bfd4b48349f72d351b703140d0338155ae23035216b38c",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/ce/ce00c0990b52769b00bfd4b48349f72d351b703140d0338155ae23035216b38c"
+    },
+    "generiraj-kompozicije.py": {
+      "hash": "df49ed0bb0c7cc8c962b36532e54453e9672d920467a00b24f6895cbe4b6772e",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/df/df49ed0bb0c7cc8c962b36532e54453e9672d920467a00b24f6895cbe4b6772e"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "9908e5f2eba547e39767c38376d1ac3ad66f6ea2f17977e1470f4e22acc43413",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/99/9908e5f2eba547e39767c38376d1ac3ad66f6ea2f17977e1470f4e22acc43413"
+    },
+    "main.js": {
+      "hash": "5f666098f05d079785d756a1924244e9582fbdc9d0c7320c48797d00cdf933cd",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/5f/5f666098f05d079785d756a1924244e9582fbdc9d0c7320c48797d00cdf933cd"
+    },
+    "meta.json": {
+      "hash": "9ad5fd49e839ab7c0297691e6eab8a432a11b1a4b6efa571055fc7c4ca2d55d4",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/9a/9ad5fd49e839ab7c0297691e6eab8a432a11b1a4b6efa571055fc7c4ca2d55d4"
+    },
+    "package.json": {
+      "hash": "956655290571d1b572df13a988accb36618d745a8f49d6109e24c32fb906e53f",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/95/956655290571d1b572df13a988accb36618d745a8f49d6109e24c32fb906e53f"
+    },
+    "assets/izvor/kralj-tomislav-official.wav": {
+      "hash": "01e7d96b5eb3d64e47efb2d01b4acb60175be2f48d4989c9fee8ed795e437e89",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/01/01e7d96b5eb3d64e47efb2d01b4acb60175be2f48d4989c9fee8ed795e437e89"
+    },
+    "assets/pjesma-a.m4a": {
+      "hash": "6f57e47083fdb88dbfbb7732168603174177bfa11861ceb0fb87540a863a193c",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/6f/6f57e47083fdb88dbfbb7732168603174177bfa11861ceb0fb87540a863a193c"
+    },
+    "assets/tomislav-bista.glb": {
+      "hash": "f204c0b4c79c4f1f52e377f4e9987aa7c28df23f1db9f7676972058d56e6478f",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/f2/f204c0b4c79c4f1f52e377f4e9987aa7c28df23f1db9f7676972058d56e6478f"
+    },
+    "renders-a16.log": {
+      "hash": "ba04afa0c5a0f8d36f4626cd74ad870f2634da0047d97565ec8a191782a27002",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/ba/ba04afa0c5a0f8d36f4626cd74ad870f2634da0047d97565ec8a191782a27002"
+    },
+    "renders-a9.log": {
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "content": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "revisions": {
+    "959bb35e-acf5-4f1e-8415-12bca6fad1b9": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792400027407,
+      "endedAt": 1792400027433,
+      "files": {
+        "film.css": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/c0/c040cb09027eb6866ba028f3803b79c2776e5e91f6f4c09a8bcb5241cce53ece",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/5a/5ae835035a57037a6b883ace96098459f24f762c3f3a962ebd16cc7f58b02dc9"
+        },
+        "generiraj-kompozicije.py": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/97/97d24c3844ada5083a746018df8431fc787a6862783bf0e7fab600f41d932f71",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/df/df49ed0bb0c7cc8c962b36532e54453e9672d920467a00b24f6895cbe4b6772e"
+        },
+        "index.html": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/0a/0ab2ae26857fae0851601c8a14a3b60e3a8570160c6446b1eaf014650f3905fc",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/99/9908e5f2eba547e39767c38376d1ac3ad66f6ea2f17977e1470f4e22acc43413"
+        },
+        "main.js": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/11/11d311fd94dd290f8846fae9e323d6458c74ce0f34b20b49fc0f8d50b4514b7c",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/5f/5f666098f05d079785d756a1924244e9582fbdc9d0c7320c48797d00cdf933cd"
+        }
+      }
+    },
+    "86f98049-97c2-4cef-b656-41483d742b5d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792400105869,
+      "endedAt": 1792400105876,
+      "files": {
+        "bista-scena.js": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/be/be86293739f378fc7b3536a777b1b56c4b080c368b6f1c2847ed499b3be6a1ae",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/7c/7c658e6e62ed585b2409baaa9317cf10e5cad07fd5b99055c843c98fbe3303cf"
+        },
+        "film.css": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/5a/5ae835035a57037a6b883ace96098459f24f762c3f3a962ebd16cc7f58b02dc9",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/19/1902801084755c31c52bbfaa44b035dbd998b86cd993fb4aa53927c485e25800"
+        },
+        "film.js": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/1d/1de36ebd8cfa6e0bd5513a2ed4deaa7e93fb3b6bc2a153294513bafaedd898a4",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/6e/6edebbd8b90848839ad63c2a6a2652db451e6f82ebc8d337280a8c643e7d07db"
+        }
+      }
+    },
+    "b43d0428-430a-4181-be4d-b00880ed5a99": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792400114595,
+      "endedAt": 1792400114596,
+      "files": {
+        "renders-a16.log": {
+          "before": null,
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "7737a7f4-4902-4be4-87e1-619a01cea25b": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1792400153076,
+      "endedAt": 1792400153082,
+      "files": {
+        "renders-a16.log": {
+          "before": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/ba/ba04afa0c5a0f8d36f4626cd74ad870f2634da0047d97565ec8a191782a27002"
+        },
+        "renders-a9.log": {
+          "before": null,
+          "after": "/Users/ms/.cache/hyperframes/history/be93778e-dfeb-4a5e-bc14-56144ef972b8/blobs/e3/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  },
+  "checks": {
+    "latest": {
+      "revision": "86f98049-97c2-4cef-b656-41483d742b5d",
+      "id": "099f8ddc-fda6-4c30-8fdc-a365c3aadf58"
+    },
+    "revisions": {
+      "959bb35e-acf5-4f1e-8415-12bca6fad1b9": [
+        {
+          "id": "f60b92ec-b197-42d9-be2c-43f8c08b4616",
+          "scope": "project",
+          "report": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/checks/f60b92ec-b197-42d9-be2c-43f8c08b4616.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792400033905,
+          "contentHash": "866380ee0db2b0cf491b007ed5b6ce9530e4367d27a9c591161143aa1db6a86b",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "86f98049-97c2-4cef-b656-41483d742b5d": [
+        {
+          "id": "099f8ddc-fda6-4c30-8fdc-a365c3aadf58",
+          "scope": "project",
+          "report": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/checks/099f8ddc-fda6-4c30-8fdc-a365c3aadf58.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1792400113033,
+          "contentHash": "866380ee0db2b0cf491b007ed5b6ce9530e4367d27a9c591161143aa1db6a86b",
+          "revision": "86f98049-97c2-4cef-b656-41483d742b5d",
+          "inputFingerprint": "69847d3632e0b3279db696220e2b8cac378f56c1a0f2973e006fb785a473f47f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "id": "29944d76-219a-4ca2-8f17-6360d5f5e716",
+        "scope": "project",
+        "report": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/checks/29944d76-219a-4ca2-8f17-6360d5f5e716.json",
+        "metadata": {
+          "ok": false,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792400018173,
+        "contentHash": "356aa91588162639265b60375ddfc74fcb0d67d5ac664ff010adb8466a9752b5",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+      "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-8"
+    },
+    "revisions": {
+      "959bb35e-acf5-4f1e-8415-12bca6fad1b9": [
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-0",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-00-at-1.5s.png",
+          "time": 1.5,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "219c372e0275767f7471d32978b9a396aa85893b4f0b84b20090a55209121f06",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-1",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-01-at-4s.png",
+          "time": 4,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "57c679ed72be739ffdfa9287132b8b861cb781cf426984d8613d60856f91edb1",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-2",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-02-at-8s.png",
+          "time": 8,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "ff46f0b59005ee362e08a4c821a58742e546f93240080cd47f66b757f27880b0",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-3",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-03-at-15s.png",
+          "time": 15,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "e74337da5160ff99a62eecdc24cbbca6c9a82dc4832fee4c9ae312fcdab41d7b",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-4",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-04-at-28.3s.png",
+          "time": 28.3,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "47cbe853c950202e743b53fc4dfb2e55395f2069ac2d7a45e0c997e89115e195",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-5",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-05-at-36s.png",
+          "time": 36,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "a5f33518df1921010261864a5dbd8ebad7ede125693a0086826af8cbedd125df",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-6",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-06-at-44s.png",
+          "time": 44,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "ae3f4b4a59b4d8e0c959a7882af4ca2835c06aab3e43ac623910418b7b8132df",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-7",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-07-at-56s.png",
+          "time": 56,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "1f86d52c6d51b8ad35b704d8a68e41e0c67cda4d77e57c608f22dd52f9e76217",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23c22a06-b937-43bd-a89d-a9a3582ef1e1-8",
+          "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/fa1f15a3-d4c4-4cc6-8c43-4797d558afd4/frame-08-at-58.2s.png",
+          "time": 58.2,
+          "metadata": {
+            "width": 1920,
+            "height": 1080,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1792400042534,
+          "contentHash": "86c14b0876ef379bacaa7e70080f989f07a45359018200d8a8ddd6b3110b9363",
+          "revision": "959bb35e-acf5-4f1e-8415-12bca6fad1b9",
+          "inputFingerprint": "2b62b57ecb02420f8a719f40c375d7fec2729cd6e46ef8e13ecfd1bfae2e59e6",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ]
+    },
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-0",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-00-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-1",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-01-at-4s.png",
+        "time": 4,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-2",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-02-at-8s.png",
+        "time": 8,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-3",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-03-at-28.3s.png",
+        "time": 28.3,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-4",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-04-at-36s.png",
+        "time": 36,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-5",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-05-at-44s.png",
+        "time": 44,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-6",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-06-at-57s.png",
+        "time": 57,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "e2ff7017-18b1-4c99-bf26-0b324b3b9506-7",
+        "image": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/.hyperframes/artifacts/snapshots/94168a6f-122e-4bfd-b480-a8d859cac943/frame-07-at-58.2s.png",
+        "time": 58.2,
+        "metadata": {
+          "width": 1920,
+          "height": 1080,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1792400002561,
+        "contentHash": "3a59c852fe70b543243b012a812149209bf7125216c44b0514e347b6091ef4b0",
+        "revision": null,
+        "inputFingerprint": "eace44529017430e7ff745ac2c76afc1de49994461f4692b27b9139f7b1bf72b",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "72bdd946-7e15-4ec7-b19e-6d137be0aea0",
+      "completedAt": 1792400189407,
+      "output": "/Users/ms/git/domovinatv/hyperframes-domovina-ai/videos/dbhz-kralj-tomislav/renders/kralj-tomislav-a-9x16.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

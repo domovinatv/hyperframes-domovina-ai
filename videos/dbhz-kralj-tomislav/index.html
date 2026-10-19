@@ -1,55 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="hr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
+    <title>Kralj Tomislav — isječak A (16:9)</title>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+        }
       }
-      html,
-      body {
-        margin: 0;
-        width: 1920px;
-        height: 1080px;
-        overflow: hidden;
-        background: #0a0a0a;
-      }
-      #root {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-      }
-    </style>
+    </script>
+    <link rel="stylesheet" href="./film.css" />
   </head>
   <body>
+    <!-- Generirano: generiraj-kompozicije.py. Brojke filma: film.js → FILMOVI.a. -->
     <div
       id="root"
-      data-composition-id="main"
+      class="landscape"
+      data-composition-id="kralj-tomislav-a-16x9"
+      data-film="a"
       data-start="0"
-      data-duration="10"
+      data-duration="60"
       data-width="1920"
       data-height="1080"
     >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+      <canvas id="bista" width="1920" height="1080"></canvas>
+
+      <div id="uvod" class="sloj">
+        <div class="uvod-in">
+          <p class="eyebrow" data-copy="eyebrow">DBHZ · DIGITALNI MUZEJ</p>
+          <h1 data-copy="naslov">Kralj Tomislav</h1>
+          <div class="crta"></div>
+          <p class="podnaslov" data-copy="podnaslov">prvi hrvatski kralj · 925.</p>
+        </div>
+      </div>
+
+      <div class="sloj"><div id="stihovi"></div></div>
+
+      <div id="odjava" class="sloj">
+        <div class="odjava-in">
+          <p class="dbhz" data-copy="dbhz">DBHZ · DIGITALNI MUZEJ</p>
+          <p class="poruka" data-copy="poruka">Bista kralja Tomislava u 3D</p>
+          <p class="adresa" data-copy="adresa">dbhz-3d-modeli.domovina.ai</p>
+          <p class="zasluge" data-copy="zasluge">Glazba: Marko Perković Thompson</p>
+          <p class="napomena" data-copy="napomena">Ilustrativna 3D digitalizacija.</p>
+        </div>
+      </div>
+
+      <div id="zatamnjenje"></div>
+
+      <audio id="pjesma" src="./assets/pjesma-a.m4a" data-start="0" data-duration="60" data-track-index="10" data-volume="1"></audio>
     </div>
-    <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+    <script type="module">
+      import { buildFilm } from "./main.js";
+      window.__timelines["kralj-tomislav-a-16x9"] = buildFilm("./");
     </script>
   </body>
 </html>
