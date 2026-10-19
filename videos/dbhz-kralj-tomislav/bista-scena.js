@@ -162,7 +162,8 @@ export function mountBista(canvas, { width, height, layout, film: FILM, base = "
     // Kamera: fiksni polarni kut, udaljenost = FitCamera × faktor iz FILM.
     const dist = baseDistance * layout.zoom * track(cam.distance, t);
     camera.position.setFromSphericalCoords(dist, polar, 0);
-    camera.lookAt(0, track(cam.lookY, t), 0);
+    const outro = smooth((t - (FILM.pjesma - 0.4)) / 1.2) * (layout.outroLookY ?? 0);
+    camera.lookAt(0, track(cam.lookY, t) + outro, 0);
 
     // Rotacija modela: kut je integral brzine iz FILM.rotation (u okretajima).
     // Kut je takav da je lice (frontDeg) prema kameri točno u frontAt.

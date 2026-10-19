@@ -24,7 +24,8 @@ const ZAJEDNICKO = {
   },
   layout: {
     landscape: { shiftX: 0.17, shiftY: 0, zoom: 1 },
-    portrait: { shiftX: 0, shiftY: -0.025, zoom: 0.8 },
+    // outroLookY: na outru bista ide gore jer je kartica ispod nje (bista-scena.js)
+    portrait: { shiftX: 0, shiftY: -0.025, zoom: 0.8, outroLookY: -0.36 },
   },
   fadeOut: 0.6,
   pomak: PRED,
