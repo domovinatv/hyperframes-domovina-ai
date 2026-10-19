@@ -1,7 +1,9 @@
 import json, sys
 from faster_whisper import WhisperModel
 m = WhisperModel("large-v3", device="cpu", compute_type="int8")
-segs, info = m.transcribe(sys.argv[1], language="hr", vad_filter=True, word_timestamps=True,
+import librosa
+audio, _ = librosa.load(sys.argv[1], sr=16000, mono=True)
+segs, info = m.transcribe(audio, language="hr", vad_filter=True, word_timestamps=True,
     condition_on_previous_text=False, beam_size=5,
     initial_prompt="Kralj Tomislav, Thompson. Hrvatska pjesma o prvom hrvatskom kralju.")
 out = []

@@ -8,13 +8,29 @@ Gotovo:
 - `film.css` — tokeni, landscape (bista desno, tekst lijevo) / portrait.
 - `analiza/audiomap-full.json` — beat grid cijele pjesme (89,1 BPM, 424 s).
 
+Tekst pjesme: GOTOVO — Demucs vokal → faster-whisper large-v3 + VAD,
+`analiza/stihovi-faster-whisper.json` (riječi s vremenima; neke riječi krivo
+prepoznate, vremena su dobra). Struktura pjesme (s, puni spot):
+
+| od–do | dio |
+|---|---|
+| 0–89 | instrumentalni uvod spota |
+| 89,7–109,5 | 1. strofa: „Na Duvanjskom polju ravnom okruniše kralja, Tomislava…", „…o prvoj kruni u Hrvata" |
+| 111,9–143,8 | 1. refren: „Žezlo i kruna" @111,9 · „od Jadranskog mora pa do rijeke Drave" @126,2–131,2 |
+| 144–185 | 2. strofa |
+| 187,6–219,9 | 2. refren („Žezlo i kruna" @187,6) |
+| 220–310 | most: „Kad s perona siđeš…" → „Blagoslov od pape, Tomislav je kralj" @303,9 |
+| 323–404 | završni refreni |
+
+Kandidati za isječak (rubovi na fraze iz audiomapa):
+- **A (preporuka)** 84,13–144,13 = 60 s: 2 takta uvoda (naslov) → krunidba na
+  Duvanjskom polju → cijeli 1. refren „Žezlo i kruna". Priča ide redom.
+- B 108,3–144,13 ≈ 36 s: samo 1. refren — za Reels/Shorts.
+- C 296,6–335,6 ≈ 39 s: „…Blagoslov od pape, Tomislav je kralj" + završni refren.
+
 Fali:
-1. Tekst pjesme s vremenima. whisper.cpp halucinira i na miksu i na vokalu.
-   Radi: Demucs (`--two-stems=vocals`) → faster-whisper large-v3 + VAD
-   (`analiza/transkripcija-faster-whisper.py`). Izlaz iz prve sesije:
-   `/private/tmp/claude-501/-Volumes-DOMOVINA2TB-git-dbhz-dbhz-3d-modeli/a53cd2e0-21d3-4352-8e5f-5153edc89bd4/scratchpad/tomislav/lyrics-fw.json`
-   (venv s numpy<2.5 u istom folderu; sistemski numba ne radi s NumPy 2.5).
-   Grubo: vokal kreće ~89 s; refren „…blagoslov od pape, Tomislav je kralj" ~300 s.
+1. (venv za analize: librosa + numpy<2.5 — sistemski numba ne radi s NumPy 2.5;
+   faster-whisper dobiva numpy niz jer mu PyAV u venvu ne prima `metadata_errors`.)
 2. Odabrati isječak (~45–60 s) oko „zlato i kruna" / refrena → `film.js` (FILM:
    duration, materials, rotation, camera, light, gold, beats, pulseWindows,
    lyrics, copy, layout, fadeOut) + ffmpeg rez s fadeom → `assets/pjesma.m4a`.
