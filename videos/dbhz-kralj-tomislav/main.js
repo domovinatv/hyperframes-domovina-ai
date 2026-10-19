@@ -47,11 +47,13 @@ export function buildFilm(base = "") {
   const tl = gsap.timeline({ paused: true });
   const { intro, outro } = FILM.copy;
 
-  tl.fromTo("#uvod .eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" }, intro.in);
-  tl.fromTo("#uvod h1", { opacity: 0, y: 28, letterSpacing: "0.32em" }, { opacity: 1, y: 0, letterSpacing: "0.14em", duration: 1.6, ease: "power3.out" }, intro.in + 0.3);
-  tl.fromTo("#uvod .crta", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power2.inOut" }, intro.in + 0.9);
-  tl.fromTo("#uvod .podnaslov", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1.0, ease: "power2.out" }, intro.in + 1.3);
-  tl.to("#uvod .uvod-in", { opacity: 0, y: -16, duration: 0.9, ease: "power2.in" }, intro.out - 0.9);
+  // tempo < 1 sažima uvod (B ima samo ~1,9 s do prvog stiha).
+  const k = intro.tempo ?? 1;
+  tl.fromTo("#uvod .eyebrow", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9 * k, ease: "power2.out" }, intro.in);
+  tl.fromTo("#uvod h1", { opacity: 0, y: 28, letterSpacing: "0.32em" }, { opacity: 1, y: 0, letterSpacing: "0.14em", duration: 1.6 * k, ease: "power3.out" }, intro.in + 0.3 * k);
+  tl.fromTo("#uvod .crta", { scaleX: 0 }, { scaleX: 1, duration: 1.2 * k, ease: "power2.inOut" }, intro.in + 0.9 * k);
+  tl.fromTo("#uvod .podnaslov", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 1.0 * k, ease: "power2.out" }, intro.in + 1.3 * k);
+  tl.to("#uvod .uvod-in", { opacity: 0, y: -16, duration: 0.9 * k, ease: "power2.in" }, intro.out - 0.9 * k);
 
   // Stihovi: riječ po riječ na vremenu iz transkripta, red nestaje na kraju.
   FILM.lyrics.forEach((line, i) => {

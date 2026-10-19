@@ -25,7 +25,9 @@ prepoznate, vremena su dobra). Struktura pjesme (s, puni spot):
 Kandidati za isječak (rubovi na fraze iz audiomapa):
 - **A (preporuka)** 84,13–144,13 = 60 s: 2 takta uvoda (naslov) → krunidba na
   Duvanjskom polju → cijeli 1. refren „Žezlo i kruna". Priča ide redom.
-- B 108,3–144,13 ≈ 36 s: samo 1. refren — za Reels/Shorts.
+- B 110,04–144,13 = 34,09 s: samo 1. refren — za Reels/Shorts. (Plan je bio
+  108,3, ali vokal „…narod svoj" traje 108,4–109,8 pa bi rez upao u riječ;
+  110,04 je prvi beat nakon, do „Žezlo" ~1,9 s tišine u vokalu.)
 - C 296,6–335,6 ≈ 39 s: „…Blagoslov od pape, Tomislav je kralj" + završni refren.
 
 Isječak A: GOTOV (2026-10-19) — `index.html` (16:9) i `formati/a-9x16.html`,
@@ -34,9 +36,15 @@ render 60,0 s oba, objavljeno na https://dbhz-thompson.domovina.ai
 9:16 snapshot: `snapshot` ne prima `-c`, pa privremena kopija projekta gdje je
 vertikalna datoteka `index.html` (sed `"../` → `"./`).
 
+Isječak B: GOTOV (2026-10-19) — `formati/b-16x9.html`, `formati/b-9x16.html`,
+34,1 s, objavljen (landing: izbor isječka, `#b` otvara B). Uvod ubrzan
+(`copy.intro.tempo: 0.5`); `camera.lookY` 0,2 → 0 do „Žezlo" spušta bistu
+dok traje naslov (u 9:16 kruna bi inače ušla u podnaslov). Refren je
+zajednički (`REFREN` u film.js, vremena spota).
+
 Fali:
-1. Korisnik pregledava A; zatim B (108,3–144,13) pa C (296,6–335,6):
-   ffmpeg rez → `assets/pjesma-<x>.m4a`, `FILMOVI.<x>` u film.js (vremena
-   riječi iz analiza/stihovi-faster-whisper.json, beatovi iz audiomapa),
-   dodati u KOMPOZICIJE u generatoru, snapshot, render, upload u R2,
-   landing: makni „u izradi" i dodaj izbor isječka.
+1. C (296,6–335,6): prvo izmjeri vokal na rubovima (Demucs vokal, RMS po
+   100 ms) — rez ne smije upasti u riječ. Zatim ffmpeg rez → `assets/pjesma-c.m4a`,
+   `FILMOVI.c` u film.js (`vrijeme(od)` daje `lok`/`rijeci`), dodati u
+   KOMPOZICIJE, check + snapshot na privremenoj kopiji (vertikalna/horizontalna
+   kao `index.html`), render, faststart, R2, landing (gumb + makni „u izradi").

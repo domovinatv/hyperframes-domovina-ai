@@ -10,6 +10,8 @@ FORMATI = {"16x9": (1920, 1080, "landscape", "16:9"), "9x16": (1080, 1920, "port
 KOMPOZICIJE = [
     ("a", "16x9", 60, "index.html"),
     ("a", "9x16", 60, "formati/a-9x16.html"),
+    ("b", "16x9", 34.09, "formati/b-16x9.html"),
+    ("b", "9x16", 34.09, "formati/b-9x16.html"),
 ]
 
 TPL = """<!doctype html>
