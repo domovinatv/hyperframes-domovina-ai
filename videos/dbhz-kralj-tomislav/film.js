@@ -158,4 +158,97 @@ export const FILMOVI = {
       beats: [0.696, 1.346, 2.043, 2.716, 3.389, 4.04, 4.783, 5.456, 6.129, 6.826, 7.499, 8.173, 8.869, 9.543, 10.239, 10.913, 11.586, 12.26, 12.956, 13.629, 14.326, 14.999, 15.673, 16.369, 17.043, 17.716, 18.413, 19.086, 19.76, 20.433, 21.13, 21.803, 22.5, 23.196, 23.869, 24.52, 25.216, 25.89, 26.586, 27.26, 27.933, 28.583, 29.303, 29.976, 30.673, 31.346, 32.043, 32.716, 33.39, 34.086],
     };
   })(),
+
+  // C: „…u našem Splitu" → „blagoslov od Pape – Tomislav je kralj" → pauza u
+  // vokalu (311–322,8: naslov pa odjava, jer se do kraja pjeva) → završna
+  // strofa „Još zemlja se mrvi…". Rubovi izmjereni na vokalu: „…tvom" do 296,9;
+  // strofa završava ~344,2. Tekst od korisnika, vremena riječi iz transkripta.
+  c: (() => {
+    const { lok, rijeci } = vrijeme(297.1);
+    const KRAJ = 47.97;
+    const red = (parovi, out) => ({ words: rijeci(parovi), out: out === undefined ? KRAJ : lok(out) });
+    return {
+      ...ZAJEDNICKO,
+      isjecak: { od: 297.1, do: 345.07 },
+      audio: "assets/pjesma-c.m4a",
+      duration: KRAJ,
+      copy: {
+        ...ZAJEDNICKO.copy,
+        intro: { in: lok(311.3), out: lok(316.6) },
+        outro: { in: lok(316.9), out: lok(322.5) },
+      },
+      lyrics: [
+        red([["a", 298.1], ["u", 298.27], ["našem", 298.57], ["Splitu", 299.25]], 299.85),
+        red([["još", 299.87], ["o", 300.59], ["tebi", 300.79], ["šumi", 301.13], ["val", 301.45]], 303.75),
+        red([["blagoslov", 303.85], ["od", 305.79], ["Pape", 306.03], ["–", 306.4]], 306.95),
+        red([["Tomislav", 306.99], ["je", 309.23], ["kralj", 309.41]], 311.1),
+        red([["Još", 322.8], ["zemlja", 323.06], ["se", 323.74], ["mrvi", 324.16]], 324.95),
+        red([["i", 325.0], ["novo", 325.64], ["sjeme", 326.0], ["niče", 327.02]], 327.7),
+        red([["još", 327.74], ["mokra", 328.5], ["od", 329.08], ["krvi", 329.66]], 330.2),
+        red([["sloboda", 330.24], ["kliče", 332.0]], 333.15),
+        red([["još", 333.18], ["Hrvat", 333.92], ["tvoj", 334.42], ["pravi", 335.18]], 335.9),
+        red([["kad", 335.92], ["čuje", 336.42], ["himnu", 336.94], ["slavi", 337.94]], 338.6),
+        red([["ko", 338.64], ["ratnik", 339.1], ["na", 339.84], ["grudi", 340.54]], 341.27),
+        red([["desnicu", 341.3], ["stavi", 343.14]]),
+      ],
+      // Patina (more, Split) → kamen („blagoslov") → bronca na „Tomislav je kralj".
+      materials: [
+        { t: 0, variant: "patina" },
+        { t: lok(303.85), variant: "kamen" },
+        { t: lok(306.99), variant: "bronca" },
+      ],
+      rotation: {
+        speed: [
+          { t: 0, v: 0.015 },
+          { t: lok(306.0), v: 0.015 },
+          { t: lok(307.5), v: 0.007 },
+          { t: lok(311.0), v: 0.007 },
+          { t: lok(313.0), v: 0.012 },
+          { t: lok(322.0), v: 0.012 },
+          { t: lok(324.0), v: 0.042 },
+          { t: lok(342.0), v: 0.042 },
+          { t: KRAJ, v: 0.02 },
+        ],
+        // lice prema kameri na „Tomislav" i opet (puni krug) na „stavi"
+        frontAt: lok(307.6),
+        frontDeg: 0,
+      },
+      camera: {
+        distance: [
+          { t: 0, v: 1.06 },
+          { t: lok(306.99), v: 0.97 },
+          { t: lok(309.6), v: 0.93 },
+          { t: lok(312.5), v: 1.1 },
+          { t: lok(322.0), v: 1.1 },
+          { t: lok(323.5), v: 0.96 },
+          { t: KRAJ, v: 1.04 },
+        ],
+        // Bista niže dok traju naslov i odjava (u 9:16 su iznad i ispod nje).
+        lookY: [
+          { t: 0, v: 0 },
+          { t: lok(311.0), v: 0 },
+          { t: lok(312.5), v: 0.2 },
+          { t: lok(316.6), v: 0.2 },
+          { t: lok(317.4), v: -0.12 },
+          { t: lok(322.0), v: -0.12 },
+          { t: lok(323.5), v: 0 },
+        ],
+      },
+      light: [
+        { t: 0, v: 0.3 },
+        { t: 1.5, v: 1 },
+      ],
+      gold: [
+        { t: 0, v: 0 },
+        { t: lok(306.5), v: 0 },
+        { t: lok(307.5), v: 1 },
+        { t: lok(311.0), v: 1 },
+        { t: lok(312.5), v: 0.45 },
+        { t: lok(322.3), v: 0.45 },
+        { t: lok(323.2), v: 1 },
+      ],
+      pulseWindows: [[lok(306.9), lok(311.0)], [lok(322.7), KRAJ]],
+      beats: [0.649, 1.3, 1.95, 2.577, 3.227, 3.877, 4.574, 5.27, 5.99, 6.663, 7.314, 8.126, 8.916, 9.636, 10.286, 10.959, 11.586, 12.329, 13.049, 13.699, 14.349, 15.092, 15.812, 16.532, 17.275, 17.972, 18.645, 19.318, 20.015, 20.688, 21.385, 22.058, 22.732, 23.428, 24.078, 24.682, 25.263, 25.866, 26.493, 27.19, 27.863, 28.56, 29.21, 29.883, 30.58, 31.23, 31.95, 32.6, 33.297, 33.993, 34.667, 35.34, 36.013, 36.687, 37.383, 38.057, 38.753, 39.427, 40.123, 40.797, 41.493, 42.167, 42.863, 43.537, 44.21, 44.791, 45.348, 45.928, 46.602, 47.275],
+    };
+  })(),
 };

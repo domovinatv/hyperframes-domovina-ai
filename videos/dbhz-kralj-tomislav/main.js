@@ -65,6 +65,8 @@ export function buildFilm(base = "") {
   });
 
   tl.fromTo("#odjava .odjava-in > *", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.35, ease: "power2.out" }, outro.in);
+  // C ima odjavu u pauzi vokala, ne na kraju — tada odlazi na outro.out.
+  if (outro.out !== undefined) tl.to("#odjava .odjava-in", { opacity: 0, y: -16, duration: 0.9, ease: "power2.in" }, outro.out - 0.9);
   tl.fromTo("#zatamnjenje", { opacity: 0 }, { opacity: 1, duration: FILM.fadeOut, ease: "none" }, FILM.duration - FILM.fadeOut);
 
   return tl;

@@ -12,6 +12,8 @@ KOMPOZICIJE = [
     ("a", "9x16", 60, "formati/a-9x16.html"),
     ("b", "16x9", 34.09, "formati/b-16x9.html"),
     ("b", "9x16", 34.09, "formati/b-9x16.html"),
+    ("c", "16x9", 47.97, "formati/c-16x9.html"),
+    ("c", "9x16", 47.97, "formati/c-9x16.html"),
 ]
 
 TPL = """<!doctype html>

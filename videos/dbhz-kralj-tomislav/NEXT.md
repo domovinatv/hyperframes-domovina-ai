@@ -42,9 +42,15 @@ Isječak B: GOTOV (2026-10-19) — `formati/b-16x9.html`, `formati/b-9x16.html`,
 dok traje naslov (u 9:16 kruna bi inače ušla u podnaslov). Refren je
 zajednički (`REFREN` u film.js, vremena spota).
 
+Isječak C: GOTOV (2026-10-19) — `formati/c-*.html`, 297,1–345,07 = 48 s
+(plan 335,6 bi presjekao strofu). Naslov + odjava su u pauzi vokala 311–322,8
+(`outro.out`), jer se do kraja pjeva. Brzina refrena 0,042 da je lice prema
+kameri i na „Tomislav" i na „stavi" (točno 1 okretaj). Tekst C dao korisnik.
+
 Fali:
-1. C (296,6–335,6): prvo izmjeri vokal na rubovima (Demucs vokal, RMS po
-   100 ms) — rez ne smije upasti u riječ. Zatim ffmpeg rez → `assets/pjesma-c.m4a`,
-   `FILMOVI.c` u film.js (`vrijeme(od)` daje `lok`/`rijeci`), dodati u
-   KOMPOZICIJE, check + snapshot na privremenoj kopiji (vertikalna/horizontalna
-   kao `index.html`), render, faststart, R2, landing (gumb + makni „u izradi").
+1. **Refren u A i B je nepotpun** (whisper ga nije čuo): fale „povijesti puna"
+   (~113,4), „Kralju Tomislave, sve je zemlja tvoje slave" (117,5–125,8),
+   „još u nama vatre ima" (133,4), „branili je vitezovi iz novih vremena"
+   (138,4–143,8). Korisnik je dao cijeli tekst u chatu 2026-10-19; vremena
+   riječi mjeriti na Demucs vokalu. Pitati prije re-rendera A/B.
+2. Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
