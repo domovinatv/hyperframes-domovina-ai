@@ -6,8 +6,9 @@ https://dbhz-thompson.domovina.ai (`#b`, `#c`, `#d`). Storyboard:
 Magisterium izvadak: `analiza/magisterium.md`. Postupak: README u dbhz-thompson.
 
 Otvoreno:
-- Pitati korisnika prije slanja u WhatsApp grupu „DBHZ 3D scan"
-  (JID 120363421678500642@g.us).
+- Poslano u WhatsApp grupu „DBHZ 3D scan" (JID 120363421678500642@g.us)
+  2026-10-19 navečer: uvodna poruka + svih 8 videa (A, B, D, C × 16:9, 9:16).
+  Čekaju se reakcije grupe.
 - Puštanje na pravom iPhoneu nije isprobano (provjeren 206).
 - Krediti spota (Ribnik / AION) nisu u outro kartici: video ne koristi kadrove
   spota, samo audio — dodati ako korisnik želi.
