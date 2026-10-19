@@ -71,4 +71,17 @@ Fali (korisnik odobrio 2026-10-19, ovim redom):
 4. Pitati prije slanja novih videa u WhatsApp grupu „DBHZ 3D scan"
    (JID 120363421678500642@g.us; MCP list_chats ne vraća ništa, send radi).
 
+**Rubovi isječaka — odluka korisnika 2026-10-19: svaki počinje i završava u
+pauzi vokala** (pravе tišine u miksu nema, min ~−23 dB; rez na beatu + kratki fade).
+Izmjereno na Demucs vokalu (< −40 dB, ≥ 0,8 s):
+- 1. refren traje do **145,4** (ne 143,8): A i B sad režu „…novih vremena".
+  Pauza 145,4–146,7, pa instrumental 146,8–165,8 → **kraj A i B ≈ 147,54**
+  (beat; fade od ~145,7 da ne dira vokal).
+- Počeci su dobri: A 84,13 (uvod), B 110,04 (pauza 110,0–111,8), C 297,1 (pauza 297,0–298,3).
+- Vokal neprekinut 322,8–366,1. **Kraj C ≈ 367** (pauza 366,1–367,8), nakon
+  strofe „Kroz Bosnu još tutnji… uz Boga, tri boje Kraljevstvo tvoje" (korisnik
+  odabrao, C ≈ 70 s). Tekst te strofe dao korisnik u chatu; vremena izmjeriti.
+- Beatovi oko rubova: [145.496, 146.193, 146.866, 147.54, 148.236, 365.529, 366.063, 366.573, 367.247, 367.92]
+- Ostale pauze: 366,1–367,8 · 368,8–370,5 · 377,0–377,7 · outro pjesme 405,9–424,3.
+
 Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
