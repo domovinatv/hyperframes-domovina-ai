@@ -47,10 +47,28 @@ Isječak C: GOTOV (2026-10-19) — `formati/c-*.html`, 297,1–345,07 = 48 s
 (`outro.out`), jer se do kraja pjeva. Brzina refrena 0,042 da je lice prema
 kameri i na „Tomislav" i na „stavi" (točno 1 okretaj). Tekst C dao korisnik.
 
-Fali:
-1. **Refren u A i B je nepotpun** (whisper ga nije čuo): fale „povijesti puna"
-   (~113,4), „Kralju Tomislave, sve je zemlja tvoje slave" (117,5–125,8),
-   „još u nama vatre ima" (133,4), „branili je vitezovi iz novih vremena"
-   (138,4–143,8). Korisnik je dao cijeli tekst u chatu 2026-10-19; vremena
-   riječi mjeriti na Demucs vokalu. Pitati prije re-rendera A/B.
-2. Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
+Fali (korisnik odobrio 2026-10-19, ovim redom):
+1. **Pun refren u A i B.** Tekst (od korisnika): „Žezlo i kruna, povijesti puna" /
+   Ref: „Kralju Tomislave, sve je zemlja tvoje slave / od Jadranskog mora pa do
+   rijeke Drave / još u nama vatre ima, još je živa domovina / branili je
+   vitezovi iz novih vremena". Sada fale „povijesti puna" (~113,4–115,5),
+   „Kralju Tomislave…" (117,5–125,8), „još u nama vatre ima" (133,4–135,2),
+   „branili je…" (138,4–143,8). Vremena riječi izmjeriti na Demucs vokalu
+   (RMS po 100 ms; stem u scratchpadu sesije a53cd2e0…/tomislav/sep, ili ponovo
+   Demucs). REFREN u film.js je zajednički za A i B. NE whisper za tekst.
+   Odjava u A (138,5) se preklapa s „branili je…" → premjestiti u outro karticu (t. 2).
+2. **Intro + outro kartica na SVIM isječcima (A, B, C), za dijeljenje na WhatsAppu:**
+   - intro 2 s PRIJE pjesme: tamna DBHZ kartica („DBHZ · Digitalni muzej" +
+     „Kralj Tomislav"), bista se pojavi iz mraka; pjesma kreće nakon kartice
+     (audio `data-start` = 2, sva vremena filma + 2 — najčišće kao `pomak` u
+     `vrijeme(od)` ili globalni offset u main.js/bista-scena.js).
+   - outro 3 s POSLIJE pjesme: bista se okreće, „Pogledaj u 3D:
+     dbhz-3d-modeli.domovina.ai", zasluga za glazbu + napomena o atribuciji;
+     glazba se stiša u kartici (fade pjesme ostaje, kartica bez glazbe ili s repom).
+   - postojeće odjave u pauzi (C) i na kraju (A, B) zamijeniti outro karticom.
+3. Re-render svih 6, faststart, R2 (isti ključevi), deploy, provjera 206;
+   ažurirati trajanja na landingu (kartice i gumbi) i README u dbhz-thompson.
+4. Pitati prije slanja novih videa u WhatsApp grupu „DBHZ 3D scan"
+   (JID 120363421678500642@g.us; MCP list_chats ne vraća ništa, send radi).
+
+Tekst pjesme NE preuzimati s lyrics stranica (autorska prava) — samo od korisnika.
