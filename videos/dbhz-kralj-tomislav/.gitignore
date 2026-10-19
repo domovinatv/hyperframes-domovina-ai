@@ -1,1 +1,5 @@
 assets/izvor/
+# Generira HyperFrames studio (preview)
+.hyperframes/preview/
+.hyperframes/hf-ids-stamped.json
+.thumbnails/
